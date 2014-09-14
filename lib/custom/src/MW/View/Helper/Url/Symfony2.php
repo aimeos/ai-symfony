@@ -47,17 +47,6 @@ class MW_View_Helper_Url_Symfony2
 	 */
 	public function transform( $target = null, $controller = null, $action = null, array $params = array(), array $trailing = array(), array $config = array() )
 	{
-/*		foreach( $params as $key => $value )
-		{
-			// Slashes in URL parameters confuses the router
-			$paramList[$key] = str_replace( '/', '', $value );
-
-			// Arrays are not supported
-			if( is_array( $value ) ) {
-				$paramList[$key] = implode( ' ', $value );
-			}
-		}
-*/
 		if( !empty( $trailing ) ) {
 			$params['trailing'] = str_replace( '/', '_', join( '_', $trailing ) );
 		}
