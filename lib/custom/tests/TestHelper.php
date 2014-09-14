@@ -47,7 +47,6 @@ class TestHelper
 
 	private static function _createContext( $site )
 	{
-		$ds = DIRECTORY_SEPARATOR;
 		$ctx = new MShop_Context_Item_Default();
 		$mshop = self::_getArcavias();
 

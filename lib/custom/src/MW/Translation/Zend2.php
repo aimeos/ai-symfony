@@ -68,7 +68,7 @@ class MW_Translation_Zend2
 				}
 			}
 		}
-		catch( Exception $e ) { ; }
+		catch( Exception $e ) { ; } // Discard errors, return original string instead
 
 		return (string) $singular;
 	}
@@ -99,7 +99,7 @@ class MW_Translation_Zend2
 				}
 			}
 		}
-		catch( Exception $e ) { ; }
+		catch( Exception $e ) { ; } // Discard errors, return original string instead
 
 		if( $this->_getPluralIndex( $number, $this->getLocale() ) > 0 ) {
 			return (string) $plural;
