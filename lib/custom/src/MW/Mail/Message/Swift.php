@@ -207,9 +207,9 @@ class MW_Mail_Message_Swift implements MW_Mail_Message_Interface
 
 
 	/**
-	 * Returns the internal Zend mail object.
+	 * Returns the internal Swift mail message object.
 	 *
-	 * @return Zend_Mail Zend mail object
+	 * @return Swift_Message Swift mail message object
 	 */
 	public function getObject()
 	{

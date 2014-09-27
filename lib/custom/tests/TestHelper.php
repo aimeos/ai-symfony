@@ -46,7 +46,13 @@ class TestHelper
 	}
 
 
-	private static function _createContext( $site )
+	/**
+	 * Creates a new context item.
+	 *
+	 * @param string $site Unique site code
+	 * @return \MShop_Context_Item_Interface Context object
+	 */
+		private static function _createContext( $site )
 	{
 		$ctx = new MShop_Context_Item_Default();
 		$mshop = self::_getArcavias();
