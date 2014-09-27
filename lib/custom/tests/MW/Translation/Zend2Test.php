@@ -1,9 +1,13 @@
 <?php
 
 /**
- * Test class for MW_Translation_Zend2Test.
- *
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos (aimeos.org), 2014
+ */
+
+
+/**
+ * Test class for MW_Translation_Zend2Test.
  */
 class MW_Translation_Zend2Test extends MW_Unittest_Testcase
 {

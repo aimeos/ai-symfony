@@ -2,12 +2,14 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @package MW
- * @subpackage Translation
+ * @copyright Aimeos (aimeos.org), 2014
+ * @package Zend
+ * @subpackage I18n
  */
 
 
 namespace Zend\I18n\Translator;
+
 use Zend\I18n\Translator\Translator;
 
 
