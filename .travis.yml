@@ -1,6 +1,7 @@
 language: php
 php:
   - "hhvm"
+  - "5.6"
   - "5.5"
   - "5.4"
   - "5.3"
@@ -8,10 +9,6 @@ before_script:
   - git clone --depth=50 --branch=master git://github.com/nsendetzky/arcavias-core.git ../arcavias-core
   - cd ../arcavias-core
   - mv ../ai-symfony2 ext/
-  - composer require "zendframework/zend-servicemanager" "2.3.*"
-  - composer require "zendframework/zend-i18n" "2.3.*"
-  - composer require "swiftmailer/swiftmailer" "5.*"
   - composer require "symfony/symfony" "2.*"
-  - composer require "monolog/monolog" "1.*"
   - composer install
 script: "vendor/bin/phing -Ddir=ext/ai-symfony2 testext && vendor/bin/phing -Ddir=ext/ai-symfony2 checkext"
