@@ -1,12 +1,15 @@
 {
 	"name": "aimeos/ai-symfony2",
 	"description": "Aimeos extension for utilizing Symfony 2 components",
+	"keywords": ["aimeos", "adapter", "symfony"],
 	"homepage": "http://aimeos.org",
 	"type": "aimeos-extension",
 	"license": "LGPL-3.0",
 	"support": {
 		"source": "https://github.com/aimeos/ai-symfony2",
-		"issues": "https://github.com/aimeos/ai-symfony2/issues"
+		"issues": "https://github.com/aimeos/ai-symfony2/issues",
+		"forum": "https://help.aimeos.org",
+		"wiki": "https://docs.aimeos.org"
 	},
 	"require": {
 		"symfony/symfony": "2.*",
