@@ -56,7 +56,7 @@ class MW_View_Helper_Url_Symfony2Test extends MW_Unittest_Testcase
 
 	public function testTransformSlashes()
 	{
-		$this->assertEquals( '/list?test=a%2Fb', $this->_object->transform( 'catalog_list', null, null, array( 'test' => 'a/b' ) ) );
+		$this->assertEquals( '/list?test=a/b', $this->_object->transform( 'catalog_list', null, null, array( 'test' => 'a/b' ) ) );
 	}
 
 
