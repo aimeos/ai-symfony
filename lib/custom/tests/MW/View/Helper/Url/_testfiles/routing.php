@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Route;
 
 $collection = new RouteCollection();
 
-$route = new Route( '/list', array( '_controller' => 'AimeosShopBundle:Catalog:list' ) );
+$route = new Route( '/{site}/list', array( '_controller' => 'AimeosShopBundle:Catalog:list' ) );
 $collection->add( 'catalog_list', $route );
 
 return $collection;
