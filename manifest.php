@@ -14,7 +14,12 @@ return array(
 		'lib/custom/src',
 	),
 	'config' => array(
+		'mysql' => array(
+			'lib/custom/config/common',
+			'lib/custom/config/mysql',
+		),
 	),
 	'setup' => array(
+		'lib/custom/setup',
 	),
 );
