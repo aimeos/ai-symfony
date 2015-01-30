@@ -7,7 +7,6 @@
 	</target>
 
 	<target name="testperf" description="Executes all performance tests">
-		<phing target="testperf" haltonfailure="true" dir="lib/custom" />
 	</target>
 
 	<target name="coverage" description="Generates the code coverage report">
