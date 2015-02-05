@@ -13,7 +13,7 @@ SET SESSION sql_mode='ANSI';
 --
 -- Table structure for `fos_user` created by Symfony doctrine
 --
-CREATE TABLE IF NOT EXISTS fos_user (
+CREATE TABLE fos_user (
 	id INT AUTO_INCREMENT NOT NULL,
 	username VARCHAR(255) NOT NULL,
 	username_canonical VARCHAR(255) NOT NULL,
