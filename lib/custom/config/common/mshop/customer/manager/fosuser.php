@@ -39,7 +39,7 @@ return array(
 				fos."firstname", fos."lastname", fos."address1",
 				fos."address2", fos."address3", fos."postal", fos."city",
 				fos."state", fos."countryid", fos."langid",
-				fos."telephone", fos."email_canonical", fos."telefax", fos."website",
+				fos."telephone", fos."email_canonical" AS "email", fos."telefax", fos."website",
 				fos."birthday", fos."enabled" as "status", fos."vdate", fos."password",
 				fos."ctime", fos."mtime", fos."editor", fos."roles"
 			FROM "fos_user" AS fos
