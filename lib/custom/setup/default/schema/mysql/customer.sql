@@ -172,7 +172,7 @@ CREATE INDEX "idx_foslity_sid_code" ON "fos_user_list_type" ("siteid", "code");
 CREATE TABLE "fos_user_list" (
 	-- Unique list id
 	"id" INTEGER NOT NULL AUTO_INCREMENT,
-	-- text id (parent id)
+	-- customer id (parent id)
 	"parentid" INTEGER NOT NULL,
 	-- site id
 	"siteid" INTEGER NULL,

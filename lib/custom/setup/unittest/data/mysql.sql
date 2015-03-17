@@ -14,7 +14,7 @@ START TRANSACTION;
 SET @siteid = ( SELECT `id` FROM `mshop_locale_site` WHERE `code` = 'unittest' );
 
 --
--- Typo3 tables
+-- Clean up Fos users tables
 --
 DELETE FROM `fos_user` WHERE `website` = 'unittest.aimeos.org';
 DELETE FROM `fos_user_address` WHERE `website` = 'unittest.aimeos.org';
