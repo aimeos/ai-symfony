@@ -127,7 +127,7 @@ class MShop_Customer_Manager_FosUserTest extends MW_Unittest_Testcase
 		$this->assertEquals( $itemExp->getRoles(), $itemUpd->getRoles() );
 
 		$this->assertEquals( $this->_editor, $itemUpd->getEditor() );
-		$this->assertRegExp( '/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/', $itemUpd->getTimeCreated() );
+		$this->assertEquals( $itemExp->getTimeCreated(), $itemUpd->getTimeCreated() );
 		$this->assertRegExp( '/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/', $itemUpd->getTimeModified() );
 
 		$this->setExpectedException( 'MShop_Exception' );
