@@ -227,6 +227,10 @@ class MShop_Customer_Manager_FosUser
 	 */
 	public function cleanup( array $siteids )
 	{
+		$path = 'classes/customer/manager/submanagers';
+		foreach( $this->_getContext()->getConfig()->get( $path, array( 'address', 'list' ) ) as $domain ) {
+			$this->getSubManager( $domain )->cleanup( $siteids );
+		}
 	}
 
 
