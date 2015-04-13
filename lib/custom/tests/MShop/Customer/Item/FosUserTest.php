@@ -12,8 +12,6 @@
 class MShop_Customer_Item_FosUserTest extends MW_Unittest_Testcase
 {
 	private $_object;
-	private $_values;
-	private $_address;
 
 
 	/**
@@ -30,9 +28,9 @@ class MShop_Customer_Item_FosUserTest extends MW_Unittest_Testcase
 			'pos' => 1,
 		);
 
-		$this->_address = new MShop_Common_Item_Address_Default( 'common.address.', $addressValues );
+		$address = new MShop_Common_Item_Address_Default( 'common.address.', $addressValues );
 
-		$this->_values = array(
+		$values = array(
 			'id' => 541,
 			'siteid' => 123,
 			'label' => 'unitObject',
@@ -65,7 +63,7 @@ class MShop_Customer_Item_FosUserTest extends MW_Unittest_Testcase
 			'roles' => array( 'ROLE_ADMIN' ),
 		);
 
-		$this->_object = new MShop_Customer_Item_FosUser( $this->_address, $this->_values, array(), array(), 'mshop', null );
+		$this->_object = new MShop_Customer_Item_FosUser( $address, $values, array(), array(), 'mshop', null );
 	}
 
 	/**
@@ -76,7 +74,7 @@ class MShop_Customer_Item_FosUserTest extends MW_Unittest_Testcase
 	 */
 	protected function tearDown()
 	{
-		unset( $this->_object, $this->_address, $this->_values );
+		unset( $this->_object );
 	}
 
 	public function testGetRoles()
