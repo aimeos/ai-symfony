@@ -23,7 +23,6 @@ class MShop_Customer_Item_FosUserTest extends MW_Unittest_Testcase
 	protected function setUp()
 	{
 		$addressValues = array(
-			'id' => 23,
 			'refid' => 'referenceid',
 			'pos' => 1,
 		);
