@@ -1,8 +1,8 @@
 {
 	"name": "aimeos/ai-symfony2",
-	"description": "Aimeos extension for utilizing Symfony 2 components",
-	"keywords": ["aimeos", "adapter", "symfony"],
-	"homepage": "https://aimeos.org",
+	"description": "Symfony 2 adapter for Aimeos web shops and e-commerce solutions",
+	"keywords": ["aimeos", "adapter", "symfony", "shop", "e-commerce"],
+	"homepage": "https://aimeos.org/Symfony",
 	"type": "aimeos-extension",
 	"license": "LGPL-3.0",
 	"support": {
