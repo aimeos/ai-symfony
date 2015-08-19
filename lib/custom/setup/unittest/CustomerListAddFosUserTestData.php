@@ -39,7 +39,7 @@ class MW_Setup_Task_CustomerListAddFosUserTestData
 		$ds = DIRECTORY_SEPARATOR;
 		$path = dirname( __FILE__ ) . $ds . 'data' . $ds . 'customer-list.php';
 
-		if( ( $testdata = include( $path ) ) == false ){
+		if( ( $testdata = include( $path ) ) === false ){
 			throw new MShop_Exception( sprintf( 'No file "%1$s" found for customer list domain', $path ) );
 		}
 

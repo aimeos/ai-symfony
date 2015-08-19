@@ -62,5 +62,4 @@ class MW_Setup_Task_TablesAddFosUserTestData extends MW_Setup_Task_Abstract
 		$this->_execute( $content );
 		$this->_status( 'done' );
 	}
-
 }

@@ -39,7 +39,7 @@ class MW_Setup_Task_CustomerAddFosUserTestData extends MW_Setup_Task_CustomerAdd
 		$ds = DIRECTORY_SEPARATOR;
 		$path = __DIR__ . $ds . 'data' . $ds . 'customer.php';
 
-		if( ( $testdata = include( $path ) ) == false ){
+		if( ( $testdata = include( $path ) ) === false ){
 			throw new MShop_Exception( sprintf( 'No file "%1$s" found for customer domain', $path ) );
 		}
 
