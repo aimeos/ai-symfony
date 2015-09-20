@@ -263,7 +263,7 @@ class MShop_Customer_Manager_Address_FosUser
 	 */
 	protected function _getConfigPath()
 	{
-		return 'mshop/customer/manager/address/fosuser/item/';
+		return 'mshop/customer/manager/address/fosuser/item';
 	}
 
 
