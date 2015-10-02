@@ -38,7 +38,7 @@ class MW_Setup_Task_TablesAddFosUserTestData extends MW_Setup_Task_Abstract
 	 */
 	protected function _mysql()
 	{
-		$this->_msg('Setting up Arcavias Fos user bundle test data', 0);
+		$this->_msg('Setting up Aimeos Fos user bundle test data', 0);
 		$this->_status('');
 
 		$file = __DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'mysql.sql';
