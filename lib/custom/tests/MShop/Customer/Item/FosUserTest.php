@@ -11,7 +11,7 @@
  */
 class MShop_Customer_Item_FosUserTest extends MW_Unittest_Testcase
 {
-	private $_object;
+	private $object;
 
 
 	/**
@@ -62,7 +62,7 @@ class MShop_Customer_Item_FosUserTest extends MW_Unittest_Testcase
 			'roles' => array( 'ROLE_ADMIN' ),
 		);
 
-		$this->_object = new MShop_Customer_Item_FosUser( $address, $values, array(), array(), 'mshop', null );
+		$this->object = new MShop_Customer_Item_FosUser( $address, $values, array(), array(), 'mshop', null );
 	}
 
 	/**
@@ -73,23 +73,23 @@ class MShop_Customer_Item_FosUserTest extends MW_Unittest_Testcase
 	 */
 	protected function tearDown()
 	{
-		unset( $this->_object );
+		unset( $this->object );
 	}
 
 	public function testGetRoles()
 	{
-		$this->assertEquals( array( 'ROLE_ADMIN' ), $this->_object->getRoles() );
+		$this->assertEquals( array( 'ROLE_ADMIN' ), $this->object->getRoles() );
 	}
 
 	public function testSetRoles()
 	{
-		$this->_object->setRoles( array( 'ROLE_USER' ) );
-		$this->assertTrue( $this->_object->isModified() );
-		$this->assertEquals( array( 'ROLE_USER' ), $this->_object->getRoles() );
+		$this->object->setRoles( array( 'ROLE_USER' ) );
+		$this->assertTrue( $this->object->isModified() );
+		$this->assertEquals( array( 'ROLE_USER' ), $this->object->getRoles() );
 	}
 
 	public function testIsModified()
 	{
-		$this->assertFalse( $this->_object->isModified() );
+		$this->assertFalse( $this->object->isModified() );
 	}
 }

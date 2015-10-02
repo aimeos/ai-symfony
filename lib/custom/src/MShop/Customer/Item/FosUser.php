@@ -17,7 +17,7 @@
 class MShop_Customer_Item_FosUser
 	extends MShop_Customer_Item_Default
 {
-	private $_roles;
+	private $roles;
 
 
 	/**
@@ -27,11 +27,11 @@ class MShop_Customer_Item_FosUser
 	 */
 	public function getRoles()
 	{
-		if( isset( $this->_roles ) ) {
-			return $this->_roles;
+		if( isset( $this->roles ) ) {
+			return $this->roles;
 		}
 
-		$values = $this->_getRawValues();
+		$values = $this->getRawValues();
 		return ( isset( $values['roles'] ) ? (array) $values['roles'] : array() );
 	}
 
@@ -43,7 +43,7 @@ class MShop_Customer_Item_FosUser
 	 */
 	public function setRoles( array $roles )
 	{
-		$this->_roles = $roles;
+		$this->roles = $roles;
 		$this->setModified();
 	}
 }

@@ -11,7 +11,7 @@
  */
 class MW_Session_Symfony2Test extends MW_Unittest_Testcase
 {
-	private $_object;
+	private $object;
 
 
 	/**
@@ -28,7 +28,7 @@ class MW_Session_Symfony2Test extends MW_Unittest_Testcase
 
 		$storage = new \Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage();
 		$session = new \Symfony\Component\HttpFoundation\Session\Session( $storage );
-		$this->_object = new MW_Session_Symfony2( $session );
+		$this->object = new MW_Session_Symfony2( $session );
 	}
 
 
@@ -40,26 +40,26 @@ class MW_Session_Symfony2Test extends MW_Unittest_Testcase
 	 */
 	protected function tearDown()
 	{
-		unset( $this->_object );
+		unset( $this->object );
 	}
 
 
 	public function testGetDefault()
 	{
-		$this->assertEquals( null, $this->_object->get( 'notexist' ) );
+		$this->assertEquals( null, $this->object->get( 'notexist' ) );
 	}
 
 
 	public function testGetSet()
 	{
-		$this->_object->set( 'key', 'value' );
-		$this->assertEquals( 'value', $this->_object->get( 'key' ) );
+		$this->object->set( 'key', 'value' );
+		$this->assertEquals( 'value', $this->object->get( 'key' ) );
 	}
 
 
 	public function testGetSetArray()
 	{
-		$this->_object->set( 'key', array( 'value' ) );
-		$this->assertEquals( array( 'value' ), $this->_object->get( 'key' ) );
+		$this->object->set( 'key', array( 'value' ) );
+		$this->assertEquals( array( 'value' ), $this->object->get( 'key' ) );
 	}
 }

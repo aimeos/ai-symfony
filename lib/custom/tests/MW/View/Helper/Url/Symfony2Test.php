@@ -11,7 +11,7 @@
  */
 class MW_View_Helper_Url_Symfony2Test extends MW_Unittest_Testcase
 {
-	private $_object;
+	private $object;
 
 
 	/**
@@ -32,7 +32,7 @@ class MW_View_Helper_Url_Symfony2Test extends MW_Unittest_Testcase
 		$loader = new \Symfony\Component\Routing\Loader\PhpFileLoader( $loc );
 		$router = new \Symfony\Component\Routing\Router( $loader, 'routing.php' );
 
-		$this->_object = new MW_View_Helper_Url_Symfony2( $view, $router, array( 'site' => 'unittest' ) );
+		$this->object = new MW_View_Helper_Url_Symfony2( $view, $router, array( 'site' => 'unittest' ) );
 	}
 
 
@@ -44,38 +44,38 @@ class MW_View_Helper_Url_Symfony2Test extends MW_Unittest_Testcase
 	 */
 	protected function tearDown()
 	{
-		$this->_object = null;
+		$this->object = null;
 	}
 
 
 	public function testTransform()
 	{
-		$this->assertEquals( '/unittest/list', $this->_object->transform( 'catalog_list' ) );
+		$this->assertEquals( '/unittest/list', $this->object->transform( 'catalog_list' ) );
 	}
 
 
 	public function testTransformSlashes()
 	{
-		$this->assertEquals( '/unittest/list?test=a/b', $this->_object->transform( 'catalog_list', null, null, array( 'test' => 'a/b' ) ) );
+		$this->assertEquals( '/unittest/list?test=a/b', $this->object->transform( 'catalog_list', null, null, array( 'test' => 'a/b' ) ) );
 	}
 
 
 	public function testTransformArrays()
 	{
-		$this->assertEquals( '/unittest/list?test%5B0%5D=a&test%5B1%5D=b', $this->_object->transform( 'catalog_list', null, null, array( 'test' => array( 'a', 'b' ) ) ) );
+		$this->assertEquals( '/unittest/list?test%5B0%5D=a&test%5B1%5D=b', $this->object->transform( 'catalog_list', null, null, array( 'test' => array( 'a', 'b' ) ) ) );
 	}
 
 
 	public function testTransformTrailing()
 	{
-		$this->assertEquals( '/unittest/list?trailing=a_b', $this->_object->transform( 'catalog_list', null, null, array(), array( 'a', 'b' ) ) );
+		$this->assertEquals( '/unittest/list?trailing=a_b', $this->object->transform( 'catalog_list', null, null, array(), array( 'a', 'b' ) ) );
 	}
 
 
 	public function testTransformAbsolute()
 	{
 		$options = array( 'absoluteUri' => true );
-		$result = $this->_object->transform( 'catalog_list', null, null, array(), array(), $options );
+		$result = $this->object->transform( 'catalog_list', null, null, array(), array(), $options );
 		$this->assertEquals( 'http://localhost/unittest/list', $result );
 	}
 }

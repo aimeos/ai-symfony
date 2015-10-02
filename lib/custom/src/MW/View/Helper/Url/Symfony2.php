@@ -18,8 +18,8 @@ class MW_View_Helper_Url_Symfony2
 	extends MW_View_Helper_Abstract
 	implements MW_View_Helper_Interface
 {
-	private $_router;
-	private $_fixed;
+	private $router;
+	private $fixed;
 
 
 	/**
@@ -33,8 +33,8 @@ class MW_View_Helper_Url_Symfony2
 	{
 		parent::__construct( $view );
 
-		$this->_router = $router;
-		$this->_fixed = $fixed;
+		$this->router = $router;
+		$this->fixed = $fixed;
 	}
 
 
@@ -61,6 +61,6 @@ class MW_View_Helper_Url_Symfony2
 			$refType = Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL;
 		}
 
-		return $this->_router->generate( $target, $params + $this->_fixed, $refType );
+		return $this->router->generate( $target, $params + $this->fixed, $refType );
 	}
 }

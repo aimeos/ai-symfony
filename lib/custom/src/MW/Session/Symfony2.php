@@ -16,7 +16,7 @@
  */
 class MW_Session_Symfony2 implements MW_Session_Interface
 {
-	private $_object;
+	private $object;
 
 
 	/**
@@ -26,7 +26,7 @@ class MW_Session_Symfony2 implements MW_Session_Interface
 	 */
 	public function __construct( Symfony\Component\HttpFoundation\Session\SessionInterface $object )
 	{
-		$this->_object = $object;
+		$this->object = $object;
 	}
 
 
@@ -41,7 +41,7 @@ class MW_Session_Symfony2 implements MW_Session_Interface
 	 */
 	public function get( $name, $default = null )
 	{
-		return $this->_object->get( $name, $default );
+		return $this->object->get( $name, $default );
 	}
 
 
@@ -56,6 +56,6 @@ class MW_Session_Symfony2 implements MW_Session_Interface
 	 */
 	public function set( $name, $value )
 	{
-		$this->_object->set( $name, $value );
+		$this->object->set( $name, $value );
 	}
 }

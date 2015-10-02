@@ -26,15 +26,15 @@ class MW_Setup_Task_CustomerListAddFosUserTestData
 	/**
 	 * Adds customer test data.
 	 */
-	protected function _process()
+	protected function process()
 	{
 		$iface = 'MShop_Context_Item_Interface';
-		if( !( $this->_additional instanceof $iface ) ) {
+		if( !( $this->additional instanceof $iface ) ) {
 			throw new MW_Setup_Exception( sprintf( 'Additionally provided object is not of type "%1$s"', $iface ) );
 		}
 
-		$this->_msg( 'Adding customer-list Fos user bundle test data', 0 );
-		$this->_additional->setEditor( 'ai-symfony:unittest' );
+		$this->msg( 'Adding customer-list Fos user bundle test data', 0 );
+		$this->additional->setEditor( 'ai-symfony:unittest' );
 
 		$ds = DIRECTORY_SEPARATOR;
 		$path = dirname( __FILE__ ) . $ds . 'data' . $ds . 'customer-list.php';
@@ -49,9 +49,9 @@ class MW_Setup_Task_CustomerListAddFosUserTestData
 		}
 
 		$refIds = array();
-		$refIds['text'] = $this->_getTextData( $refKeys['text'] );
-		$this->_addCustomerListData( $testdata, $refIds, 'FosUser' );
+		$refIds['text'] = $this->getTextData( $refKeys['text'] );
+		$this->addCustomerListData( $testdata, $refIds, 'FosUser' );
 
-		$this->_status( 'done' );
+		$this->status( 'done' );
 	}
 }
