@@ -9,7 +9,7 @@
 /**
  * Test class for MW_View_Helper_Url_Symfony2.
  */
-class MW_View_Helper_Url_Symfony2Test extends MW_Unittest_Testcase
+class MW_View_Helper_Url_Symfony2Test extends PHPUnit_Framework_TestCase
 {
 	private $object;
 

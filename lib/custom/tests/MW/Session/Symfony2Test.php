@@ -9,7 +9,7 @@
 /**
  * Test class for MW_Session_Symfony2.
  */
-class MW_Session_Symfony2Test extends MW_Unittest_Testcase
+class MW_Session_Symfony2Test extends PHPUnit_Framework_TestCase
 {
 	private $object;
 
