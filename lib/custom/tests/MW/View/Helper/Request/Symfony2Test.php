@@ -6,7 +6,7 @@
  */
 
 
-class MW_View_Helper_Request_Symfony2Test extends MW_Unittest_Testcase
+class MW_View_Helper_Request_Symfony2Test extends PHPUnit_Framework_TestCase
 {
 	private $object;
 	private $mock;

@@ -6,7 +6,7 @@
  */
 
 
-class MShop_Customer_Manager_List_Type_FosUserTest extends MW_Unittest_Testcase
+class MShop_Customer_Manager_List_Type_FosUserTest extends PHPUnit_Framework_TestCase
 {
 	private $object;
 	private $editor = '';

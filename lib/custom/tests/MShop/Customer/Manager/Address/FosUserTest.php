@@ -6,7 +6,7 @@
  */
 
 
-class MShop_Customer_Manager_Address_FosUserTest extends MW_Unittest_Testcase
+class MShop_Customer_Manager_Address_FosUserTest extends PHPUnit_Framework_TestCase
 {
 	private $fixture = null;
 	private $object = null;

@@ -9,7 +9,7 @@
 /**
  * Test class for MShop_Customer_Item_FosUser.
  */
-class MShop_Customer_Item_FosUserTest extends MW_Unittest_Testcase
+class MShop_Customer_Item_FosUserTest extends PHPUnit_Framework_TestCase
 {
 	private $object;
 
