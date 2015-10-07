@@ -6,10 +6,13 @@
  */
 
 
+namespace Aimeos\MW\Session;
+
+
 /**
- * Test class for MW_Session_Symfony2.
+ * Test class for \Aimeos\MW\Session\Symfony2.
  */
-class MW_Session_Symfony2Test extends PHPUnit_Framework_TestCase
+class Symfony2Test extends \PHPUnit_Framework_TestCase
 {
 	private $object;
 
@@ -28,7 +31,7 @@ class MW_Session_Symfony2Test extends PHPUnit_Framework_TestCase
 
 		$storage = new \Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage();
 		$session = new \Symfony\Component\HttpFoundation\Session\Session( $storage );
-		$this->object = new MW_Session_Symfony2( $session );
+		$this->object = new \Aimeos\MW\Session\Symfony2( $session );
 	}
 
 

@@ -8,14 +8,17 @@
  */
 
 
+namespace Aimeos\MShop\Customer\Item;
+
+
 /**
  * Customer DTO object for the FosUserBundle.
  *
  * @package MShop
  * @subpackage Customer
  */
-class MShop_Customer_Item_FosUser
-	extends MShop_Customer_Item_Default
+class FosUser
+	extends \Aimeos\MShop\Customer\Item\Standard
 {
 	private $roles;
 

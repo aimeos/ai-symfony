@@ -8,15 +8,18 @@
  */
 
 
+namespace Aimeos\MW\View\Helper\Request;
+
+
 /**
  * View helper class for retrieving data from Symfony2 requests.
  *
  * @package MW
  * @subpackage View
  */
-class MW_View_Helper_Request_Symfony2
-	extends MW_View_Helper_Abstract
-	implements MW_View_Helper_Interface
+class Symfony2
+	extends \Aimeos\MW\View\Helper\Base
+	implements \Aimeos\MW\View\Helper\Iface
 {
 	private $request;
 
@@ -24,7 +27,7 @@ class MW_View_Helper_Request_Symfony2
 	/**
 	 * Initializes the URL view helper.
 	 *
-	 * @param MW_View_Interface $view View instance with registered view helpers
+	 * @param \Aimeos\MW\View\Iface $view View instance with registered view helpers
 	 * @param \Symfony\Component\HttpFoundation\Request $request Symfony2 request object
 	 */
 	public function __construct( $view, \Symfony\Component\HttpFoundation\Request $request )
@@ -38,7 +41,7 @@ class MW_View_Helper_Request_Symfony2
 	/**
 	 * Returns the request view helper.
 	 *
-	 * @return MW_View_Helper_Interface Request view helper
+	 * @return \Aimeos\MW\View\Helper\Iface Request view helper
 	 */
 	public function transform()
 	{

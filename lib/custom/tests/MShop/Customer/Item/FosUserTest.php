@@ -6,10 +6,13 @@
  */
 
 
+namespace Aimeos\MShop\Customer\Item;
+
+
 /**
- * Test class for MShop_Customer_Item_FosUser.
+ * Test class for \Aimeos\MShop\Customer\Item\FosUser.
  */
-class MShop_Customer_Item_FosUserTest extends PHPUnit_Framework_TestCase
+class FosUserTest extends \PHPUnit_Framework_TestCase
 {
 	private $object;
 
@@ -27,7 +30,7 @@ class MShop_Customer_Item_FosUserTest extends PHPUnit_Framework_TestCase
 			'pos' => 1,
 		);
 
-		$address = new MShop_Common_Item_Address_Default( 'common.address.', $addressValues );
+		$address = new \Aimeos\MShop\Common\Item\Address\Standard( 'common.address.', $addressValues );
 
 		$values = array(
 			'id' => 541,
@@ -40,7 +43,7 @@ class MShop_Customer_Item_FosUserTest extends PHPUnit_Framework_TestCase
 			'vdate' => null,
 			'company' => 'unitCompany',
 			'vatid' => 'DE999999999',
-			'salutation' => MShop_Common_Item_Address_Abstract::SALUTATION_MR,
+			'salutation' => \Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MR,
 			'title' => 'Dr.',
 			'firstname' => 'firstunit',
 			'lastname' => 'lastunit',
@@ -62,7 +65,7 @@ class MShop_Customer_Item_FosUserTest extends PHPUnit_Framework_TestCase
 			'roles' => array( 'ROLE_ADMIN' ),
 		);
 
-		$this->object = new MShop_Customer_Item_FosUser( $address, $values, array(), array(), 'mshop', null );
+		$this->object = new \Aimeos\MShop\Customer\Item\FosUser( $address, $values, array(), array(), 'mshop', null );
 	}
 
 	/**

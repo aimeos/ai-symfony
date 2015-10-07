@@ -8,14 +8,17 @@
  */
 
 
+namespace Aimeos\MShop\Customer\Manager\Group;
+
+
 /**
  * Fos user bundle implementation of the customer group class
  *
  * @package MShop
  * @subpackage Customer
  */
-class MShop_Customer_Manager_Group_FosUser
-	extends MShop_Customer_Manager_Group_Default
-	implements MShop_Customer_Manager_Group_Interface
+class FosUser
+	extends \Aimeos\MShop\Customer\Manager\Group\Standard
+	implements \Aimeos\MShop\Customer\Manager\Group\Iface
 {
 }

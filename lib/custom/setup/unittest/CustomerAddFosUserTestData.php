@@ -6,10 +6,13 @@
  */
 
 
+namespace Aimeos\MW\Setup\Task;
+
+
 /**
  * Adds Laravel customer test data.
  */
-class MW_Setup_Task_CustomerAddFosUserTestData extends MW_Setup_Task_CustomerAddTestData
+class CustomerAddFosUserTestData extends \Aimeos\MW\Setup\Task\CustomerAddTestData
 {
 	/**
 	 * Returns the list of task names which this task depends on.
@@ -27,9 +30,9 @@ class MW_Setup_Task_CustomerAddFosUserTestData extends MW_Setup_Task_CustomerAdd
 	 */
 	protected function process()
 	{
-		$iface = 'MShop_Context_Item_Interface';
+		$iface = '\\Aimeos\\MShop\\Context\\Item\\Iface';
 		if( !( $this->additional instanceof $iface ) ) {
-			throw new MW_Setup_Exception( sprintf( 'Additionally provided object is not of type "%1$s"', $iface ) );
+			throw new \Aimeos\MW\Setup\Exception( sprintf( 'Additionally provided object is not of type "%1$s"', $iface ) );
 		}
 
 		$this->msg( 'Adding Fos user bundle customer test data', 0 );
@@ -40,11 +43,11 @@ class MW_Setup_Task_CustomerAddFosUserTestData extends MW_Setup_Task_CustomerAdd
 		$path = __DIR__ . $ds . 'data' . $ds . 'customer.php';
 
 		if( ( $testdata = include( $path ) ) === false ){
-			throw new MShop_Exception( sprintf( 'No file "%1$s" found for customer domain', $path ) );
+			throw new \Aimeos\MShop\Exception( sprintf( 'No file "%1$s" found for customer domain', $path ) );
 		}
 
 
-		$customerManager = MShop_Customer_Manager_Factory::createManager( $this->additional, 'FosUser' );
+		$customerManager = \Aimeos\MShop\Customer\Manager\Factory::createManager( $this->additional, 'FosUser' );
 		$customerAddressManager = $customerManager->getSubManager( 'address', 'FosUser' );
 
 		foreach( $customerManager->searchItems( $customerManager->createSearch() ) as $id => $item ) {

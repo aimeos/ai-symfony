@@ -8,15 +8,18 @@
  */
 
 
+namespace Aimeos\MW\View\Helper\Url;
+
+
 /**
  * View helper class for building URLs using Symfony2 Router.
  *
  * @package MW
  * @subpackage View
  */
-class MW_View_Helper_Url_Symfony2
-	extends MW_View_Helper_Abstract
-	implements MW_View_Helper_Interface
+class Symfony2
+	extends \Aimeos\MW\View\Helper\Base
+	implements \Aimeos\MW\View\Helper\Iface
 {
 	private $router;
 	private $fixed;
@@ -25,7 +28,7 @@ class MW_View_Helper_Url_Symfony2
 	/**
 	 * Initializes the URL view helper.
 	 *
-	 * @param MW_View_Interface $view View instance with registered view helpers
+	 * @param \Aimeos\MW\View\Iface $view View instance with registered view helpers
 	 * @param Symfony\Component\Routing\RouterInterface $router Symfony2 Router implementation
 	 * @param array $fixed Fixed parameters that should be added to each URL
 	 */
@@ -55,10 +58,10 @@ class MW_View_Helper_Url_Symfony2
 			$params['trailing'] = str_replace( '/', '_', join( '_', $trailing ) );
 		}
 
-		$refType = Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_PATH;
+		$refType = \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_PATH;
 
 		if( isset( $config['absoluteUri'] ) ) {
-			$refType = Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL;
+			$refType = \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL;
 		}
 
 		return $this->router->generate( $target, $params + $this->fixed, $refType );

@@ -8,13 +8,16 @@
  */
 
 
+namespace Aimeos\MW\Session;
+
+
 /**
  * Implementation using Symfony2 sessions.
  *
  * @package MW
  * @subpackage Session
  */
-class MW_Session_Symfony2 implements MW_Session_Interface
+class Symfony2 implements \Aimeos\MW\Session\Iface
 {
 	private $object;
 
@@ -24,7 +27,7 @@ class MW_Session_Symfony2 implements MW_Session_Interface
 	 *
 	 * @param Symfony\Component\HttpFoundation\Session\SessionInterface $object Symfony2 session object
 	 */
-	public function __construct( Symfony\Component\HttpFoundation\Session\SessionInterface $object )
+	public function __construct( \Symfony\Component\HttpFoundation\Session\SessionInterface $object )
 	{
 		$this->object = $object;
 	}
