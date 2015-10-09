@@ -20,7 +20,7 @@
 	"prefer-stable": true,
 	"minimum-stability": "dev",
 	"require": {
-		"php": ">=5.3.3"
+		"php": ">=5.3.3",
 		"symfony/symfony": "~2.4"
 	},
 	"require-dev": {
