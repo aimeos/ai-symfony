@@ -225,10 +225,8 @@ class FosUser
 	 */
 	public function deleteItems( array $ids )
 	{
-		$path = 'mshop/customer/manager/address/fosuser/item/delete';
-		$sql = $this->getContext()->getConfig()->get( $path, $path );
-
-		$this->deleteItemsBase( $ids, $sql, false );
+		$path = 'mshop/customer/manager/address/fosuser/delete';
+		$this->deleteItemsBase( $ids, $path, false );
 	}
 
 
@@ -262,11 +260,11 @@ class FosUser
 	/**
 	 * Returns the config path for retrieving the configuration values.
 	 *
-	 * @return string Configuration path (mshop/customer/manager/address/fosuser/item/)
+	 * @return string Configuration path (mshop/customer/manager/address/fosuser/)
 	 */
 	protected function getConfigPath()
 	{
-		return 'mshop/customer/manager/address/fosuser/item';
+		return 'mshop/customer/manager/address/fosuser/';
 	}
 
 

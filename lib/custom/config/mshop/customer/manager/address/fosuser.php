@@ -6,12 +6,14 @@
  */
 
 return array(
-	'item' => array(
-		'delete' => '
+	'delete' => array(
+		'ansi' => '
 			DELETE FROM "fos_user_address"
 			WHERE :cond
 		',
-		'insert' => '
+	),
+	'insert' => array(
+		'ansi' => '
 			INSERT INTO "fos_user_address" (
 				"siteid", "refid", "company", "vatid", "salutation", "title",
 				"firstname", "lastname", "address1", "address2", "address3",
@@ -22,7 +24,9 @@ return array(
 				?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
 			)
 		',
-		'update' => '
+	),
+	'update' => array(
+		'ansi' => '
 			UPDATE "fos_user_address"
 			SET "siteid" = ?, "refid" = ?, "company" = ?, "vatid" = ?, "salutation" = ?,
 				"title" = ?, "firstname" = ?, "lastname" = ?, "address1" = ?,
@@ -32,7 +36,9 @@ return array(
 				"pos" = ?, "mtime" = ?, "editor" = ?
 			WHERE "id" = ?
 		',
-		'search' => '
+	),
+	'search' => array(
+		'ansi' => '
 			SELECT DISTINCT fosad."id", fosad."refid",
 				fosad."company", fosad."vatid", fosad."salutation", fosad."title",
 				fosad."firstname", fosad."lastname", fosad."address1",
@@ -47,7 +53,9 @@ return array(
 			/*-orderby*/ ORDER BY :order /*orderby-*/
 			LIMIT :size OFFSET :start
 		',
-		'count' => '
+	),
+	'count' => array(
+		'ansi' => '
 			SELECT COUNT(*) AS "count"
 			FROM (
 				SELECT DISTINCT fosad."id"
@@ -57,5 +65,8 @@ return array(
 				LIMIT 10000 OFFSET 0
 			) AS list
 		',
+	),
+	'newid' => array(
+		'mysql' => 'SELECT LAST_INSERT_ID()'
 	),
 );

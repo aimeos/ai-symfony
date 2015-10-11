@@ -140,7 +140,7 @@ class FosUser
 			$this->getSubManager( $domain )->cleanup( $siteids );
 		}
 
-		$this->cleanupBase( $siteids, 'mshop/customer/manager/lists/fosuser/item/delete' );
+		$this->cleanupBase( $siteids, 'mshop/customer/manager/lists/fosuser/delete' );
 	}
 
 
@@ -174,11 +174,11 @@ class FosUser
 	/**
 	 * Returns the config path for retrieving the configuration values.
 	 *
-	 * @return string Configuration path (mshop/customer/manager/lists/type/fosuser/item/)
+	 * @return string Configuration path (mshop/customer/manager/lists/type/fosuser/)
 	 */
 	protected function getConfigPath()
 	{
-		return 'mshop/customer/manager/lists/fosuser/item/';
+		return 'mshop/customer/manager/lists/fosuser/';
 	}
 
 
