@@ -40,7 +40,7 @@ class CustomerChangeAddressRefidParentidFosUser extends \Aimeos\MW\Setup\Task\Ba
 	 */
 	public function getPostDependencies()
 	{
-		return array( 'TablesCreateMShopLaravel' );
+		return array( 'TablesCreateFosUser' );
 	}
 
 
