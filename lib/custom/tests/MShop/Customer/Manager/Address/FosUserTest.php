@@ -36,7 +36,7 @@ class FosUserTest extends \PHPUnit_Framework_TestCase
 		}
 
 		$this->fixture = array(
-			'refid' => $customerItem->getId(),
+			'parentid' => $customerItem->getId(),
 			'company' => 'ABC GmbH',
 			'vatid' => 'DE999999999',
 			'salutation' => \Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MR,
@@ -122,7 +122,7 @@ class FosUserTest extends \PHPUnit_Framework_TestCase
 
 		$this->assertTrue( $item->getId() !== null );
 		$this->assertEquals( $item->getId(), $itemSaved->getId() );
-		$this->assertEquals( $item->getRefId(), $itemSaved->getRefId());
+		$this->assertEquals( $item->getParentId(), $itemSaved->getParentId());
 		$this->assertEquals( $item->getPosition(), $itemSaved->getPosition());
 		$this->assertEquals( $item->getCompany(), $itemSaved->getCompany());
 		$this->assertEquals( $item->getVatID(), $itemSaved->getVatID());
@@ -149,7 +149,7 @@ class FosUserTest extends \PHPUnit_Framework_TestCase
 		$this->assertRegExp('/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/', $itemSaved->getTimeModified());
 
 		$this->assertEquals( $itemExp->getId(), $itemUpd->getId() );
-		$this->assertEquals( $itemExp->getRefId(), $itemUpd->getRefId());
+		$this->assertEquals( $itemExp->getParentId(), $itemUpd->getParentId());
 		$this->assertEquals( $itemExp->getPosition(), $itemUpd->getPosition());
 		$this->assertEquals( $itemExp->getCompany(), $itemUpd->getCompany());
 		$this->assertEquals( $itemExp->getVatID(), $itemUpd->getVatID());

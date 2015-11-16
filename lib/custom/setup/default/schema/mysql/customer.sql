@@ -66,8 +66,8 @@ CREATE TABLE "fos_user_address" (
 	"id" INTEGER NOT NULL AUTO_INCREMENT,
 	-- site id, not used
 	"siteid" INTEGER NULL,
-	-- reference id for customer
-	"refid" INTEGER NOT NULL,
+	-- parent id for customer
+	"parentid" INTEGER NOT NULL,
 	-- company name
 	"company" VARCHAR(100) NOT NULL,
 	-- vatid
@@ -118,7 +118,7 @@ CONSTRAINT "pk_fosad_id"
 	PRIMARY KEY ("id")
 ) ENGINE=InnoDB CHARACTER SET = utf8;
 
-CREATE INDEX "idx_fosad_refid" ON "fos_user_address" ("refid");
+CREATE INDEX "idx_fosad_pid" ON "fos_user_address" ("parentid");
 
 CREATE INDEX "idx_fosad_ln_fn" ON "fos_user_address" ("lastname", "firstname");
 

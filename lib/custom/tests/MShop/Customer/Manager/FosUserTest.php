@@ -179,7 +179,7 @@ class FosUserTest extends \PHPUnit_Framework_TestCase
 		$expr[] = $search->compare( '==', 'customer.editor', $this->editor );
 
 		$expr[] = $search->compare( '!=', 'customer.address.id', null );
-		$expr[] = $search->compare( '!=', 'customer.address.refid', null );
+		$expr[] = $search->compare( '!=', 'customer.address.parentid', null );
 		$expr[] = $search->compare( '==', 'customer.address.company', 'ABC GmbH' );
 		$expr[] = $search->compare( '==', 'customer.address.vatid', 'DE999999999' );
 		$expr[] = $search->compare( '==', 'customer.address.salutation', 'mr' );

@@ -26,7 +26,7 @@ class FosUserTest extends \PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		$addressValues = array(
-			'refid' => 'referenceid',
+			'parentid' => 'referenceid',
 			'pos' => 1,
 		);
 
