@@ -71,9 +71,13 @@ return array(
 	),
 	'search' => array(
 		'ansi' => '
-			SELECT fosli."id", fosli."siteid", fosli."parentid", fosli."typeid", fosli."domain",
-				fosli."refid", fosli."start", fosli."end", fosli."config", fosli."pos",
-				fosli."status", fosli."mtime", fosli."editor", fosli."ctime"
+			SELECT fosli."id" AS "customer.lists.id", fosli."siteid" AS "customer.lists.siteid",
+				fosli."parentid" AS "customer.lists.parentid", fosli."typeid" AS "customer.lists.typeid",
+				fosli."domain" AS "customer.lists.domain", fosli."refid" AS "customer.lists.refid",
+				fosli."start" AS "customer.lists.datestart", fosli."end" AS "customer.lists.dateend",
+				fosli."config" AS "customer.lists.config", fosli."pos" AS "customer.lists.position",
+				fosli."status" AS "customer.lists.status", fosli."mtime" AS "customer.lists.mtime",
+				fosli."editor" AS "customer.lists.editor", fosli."ctime" AS "customer.lists.ctime"
 			FROM "fos_user_list" AS fosli
 			:joins
 			WHERE :cond

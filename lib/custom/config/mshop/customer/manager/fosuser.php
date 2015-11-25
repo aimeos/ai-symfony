@@ -40,14 +40,21 @@ return array(
 	),
 	'search' => array(
 		'ansi' => '
-			SELECT DISTINCT fos."id", fos."username_canonical" as "code", fos."username" as "label",
-				fos."company", fos."vatid", fos."salutation", fos."title",
-				fos."firstname", fos."lastname", fos."address1",
-				fos."address2", fos."address3", fos."postal", fos."city",
-				fos."state", fos."countryid", fos."langid",
-				fos."telephone", fos."email_canonical" AS "email", fos."telefax", fos."website",
-				fos."birthday", fos."enabled" as "status", fos."vdate", fos."password",
-				fos."ctime", fos."mtime", fos."editor", fos."roles"
+			SELECT DISTINCT fos."id" AS "customer.id",
+				fos."username_canonical" as "customer.code", fos."username" as "customer.label",
+				fos."company" AS "customer.company", fos."vatid" AS "customer.vatid",
+				fos."salutation" AS "customer.salutation", fos."title" AS "customer.title",
+				fos."firstname" AS "customer.firstname", fos."lastname" AS "customer.lastname",
+				fos."address1" AS "customer.address1", fos."address2" AS "customer.address2",
+				fos."address3" AS "customer.address3", fos."postal" AS "customer.postal",
+				fos."city" AS "customer.city", fos."state" AS "customer.state",
+				fos."countryid" AS "customer.countryid", fos."langid" AS "customer.languageid",
+				fos."telephone" AS "customer.telephone", fos."email_canonical" AS "customer.email",
+				fos."telefax" AS "customer.telefax", fos."website" AS "customer.website",
+				fos."birthday" AS "customer.birthday", fos."enabled" as "customer.status",
+				fos."vdate" AS "customer.vdate", fos."password" AS "customer.password",
+				fos."ctime" AS "customer.ctime", fos."mtime" AS "customer.mtime",
+				fos."editor" AS "customer.editor", fos."roles"
 			FROM "fos_user" AS fos
 			:joins
 			WHERE :cond

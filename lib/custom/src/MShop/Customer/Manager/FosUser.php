@@ -474,7 +474,7 @@ class FosUser
 
 			$results = $this->searchItemsBase( $conn, $search, $cfgPathSearch, $cfgPathCount, $required, $total, $level );
 			while( ( $row = $results->fetch() ) !== false ) {
-				$map[ $row['id'] ] = $row;
+				$map[ $row['customer.id'] ] = $row;
 			}
 
 			$dbm->release( $conn, $dbname );
