@@ -65,4 +65,13 @@ class Symfony2Test extends \PHPUnit_Framework_TestCase
 
 		$this->assertEquals( '127.0.0.1', $this->object->transform()->getClientAddress() );
 	}
+
+
+	public function testGetTarget()
+	{
+		$this->mock->expects( $this->once() )->method( 'get' )
+			->will( $this->returnValue( 'test' ) );
+
+		$this->assertEquals( 'test', $this->object->transform()->getTarget() );
+	}
 }

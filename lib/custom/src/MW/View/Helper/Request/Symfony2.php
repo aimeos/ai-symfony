@@ -19,7 +19,7 @@ namespace Aimeos\MW\View\Helper\Request;
  */
 class Symfony2
 	extends \Aimeos\MW\View\Helper\Base
-	implements \Aimeos\MW\View\Helper\Iface
+	implements \Aimeos\MW\View\Helper\Request\Iface
 {
 	private $request;
 
@@ -68,5 +68,16 @@ class Symfony2
 	public function getClientAddress()
 	{
 		return $this->request->getClientIp();
+	}
+
+
+	/**
+	 * Returns the current page or route name
+	 *
+	 * @return string|null Current page or route name
+	 */
+	public function getTarget()
+	{
+		return $this->request->get( '_route' );
 	}
 }
