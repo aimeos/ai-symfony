@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="Aimeos Symfony2 extension" default="test">
+<project name="Aimeos Symfony extension" default="test">
 
 	<target name="test" description="Executes all tests">
 		<phing target="test" haltonfailure="true" dir="lib/custom" />

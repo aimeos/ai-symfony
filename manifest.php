@@ -6,7 +6,7 @@
  */
 
 return array(
-	'name' => 'ai-symfony2',
+	'name' => 'ai-symfony',
 	'depends' => array(
 		'aimeos-core',
 	),

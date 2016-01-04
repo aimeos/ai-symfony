@@ -1,13 +1,13 @@
 {
-	"name": "aimeos/ai-symfony2",
+	"name": "aimeos/ai-symfony",
 	"description": "Symfony 2 adapter for Aimeos web shops and e-commerce solutions",
 	"keywords": ["aimeos", "adapter", "symfony", "shop", "e-commerce"],
 	"homepage": "https://aimeos.org/Symfony",
 	"type": "aimeos-extension",
 	"license": "LGPL-3.0",
 	"support": {
-		"source": "https://github.com/aimeos/ai-symfony2",
-		"issues": "https://github.com/aimeos/ai-symfony2/issues",
+		"source": "https://github.com/aimeos/ai-symfony",
+		"issues": "https://github.com/aimeos/ai-symfony/issues",
 		"forum": "https://aimeos.org/help",
 		"wiki": "https://aimeos.org/docs"
 	},
