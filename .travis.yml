@@ -9,6 +9,14 @@ php:
   - 5.4
   - 5.3
 
+env:
+  - SYMFONY_VERSION=2.4.*
+  - SYMFONY_VERSION=2.5.*
+  - SYMFONY_VERSION=2.6.*
+  - SYMFONY_VERSION=2.7.*
+  - SYMFONY_VERSION=2.8.*
+  - SYMFONY_VERSION=3.0.*
+
 before_script:
   - git clone --depth=50 --branch=master git://github.com/aimeos/aimeos-core.git ../aimeos-core
   - cd ../aimeos-core
@@ -23,3 +31,12 @@ script:
 
 after_success:
   - php vendor/bin/coveralls -c ext/ai-symfony/.coveralls.yml
+
+matrix:
+  fast_finish: true
+  exclude:
+    - php: 5.3
+      env: SYMFONY_VERSION=3.0.*
+    - php: 5.4
+      env: SYMFONY_VERSION=3.0.*
+  
