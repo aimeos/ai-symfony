@@ -33,9 +33,44 @@ class Symfony2
 	 * @param \Aimeos\MW\View\Iface $view View instance with registered view helpers
 	 * @param \Symfony\Component\HttpFoundation\Request $request Symfony2 request object
 	 */
-	public function __construct( $view, \Symfony\Component\HttpFoundation\Request $req )
+	public function __construct( $view, \Symfony\Component\HttpFoundation\Request $request )
 	{
-		parent::__construct( $view, $req->getContent(), $req->getClientIp(), $req->get( '_route' ), $req->files );
+		parent::__construct( $view, null, null, null, $request->files );
+
+		$this->request = $request;
+	}
+
+
+	/**
+	 * Returns the request body.
+	 *
+	 * @return string Request body
+	 */
+	public function getBody()
+	{
+		return $this->request->getContent();
+	}
+
+
+	/**
+	 * Returns the client IP address.
+	 *
+	 * @return string Client IP address
+	 */
+	public function getClientAddress()
+	{
+		return $this->request->getClientIp();
+	}
+
+
+	/**
+	 * Returns the current page or route name
+	 *
+	 * @return string|null Current page or route name
+	 */
+	public function getTarget()
+	{
+		return $this->request->get( '_route' );
 	}
 
 
