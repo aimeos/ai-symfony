@@ -35,7 +35,8 @@ class Symfony2
 	 */
 	public function __construct( $view, \Symfony\Component\HttpFoundation\Request $request )
 	{
-		parent::__construct( $view, null, null, null, $request->files );
+		$files = ( $request->files ?: array() );
+		parent::__construct( $view, null, null, null, $files );
 
 		$this->request = $request;
 	}
