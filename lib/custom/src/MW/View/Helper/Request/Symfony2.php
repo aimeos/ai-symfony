@@ -82,13 +82,13 @@ class Symfony2
 	 */
 	protected function createUploadedFiles( $files )
 	{
-		$files = array();
+		$list = array();
 
 		foreach( $files as $key => $value )
 		{
 			if( $value instanceof UploadedFile )
 			{
-				$files[$key] = new \Aimeos\MW\View\Helper\Request\File\Standard(
+				$list[$key] = new \Aimeos\MW\View\Helper\Request\File\Standard(
 					$value->getRealPath(),
 					$value->getClientOriginalName(),
 					$value->getSize(),
@@ -98,10 +98,10 @@ class Symfony2
 			}
 			else
 			{
-				$files[$key] = $this->createUploadedFiles($value);
+				$list[$key] = $this->createUploadedFiles($value);
 			}
 		}
 
-		return $files;
+		return $list;
 	}
 }
