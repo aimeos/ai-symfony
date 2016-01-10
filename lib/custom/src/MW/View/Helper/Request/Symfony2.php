@@ -96,9 +96,9 @@ class Symfony2
 					$value->getError()
 				);
 			}
-			else
+			elseif( is_array( $value ) )
 			{
-				$list[$key] = $this->createUploadedFiles($value);
+				$list[$key] = $this->createUploadedFiles( $value );
 			}
 		}
 
