@@ -19,47 +19,31 @@ class Symfony2Test extends \PHPUnit_Framework_TestCase
 			$this->markTestSkipped( '\Symfony\Component\HttpFoundation\Request is not available' );
 		}
 
+		if( !class_exists( '\Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory' ) ) {
+			$this->markTestSkipped( '\Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory is not available' );
+		}
+
 		$view = new \Aimeos\MW\View\Standard();
-		$this->mock = $this->getMock( '\Symfony\Component\HttpFoundation\Request' );
-		$this->object = new \Aimeos\MW\View\Helper\Request\Symfony2( $view, $this->mock, array() );
+		$param = array( 'HTTP_HOST' => 'localhost', 'REMOTE_ADDR' => '127.0.0.1' );
+		$request = new \Symfony\Component\HttpFoundation\Request( array(), array(), array(), array(), array(), $param, 'Content' );
+		$this->object = new \Aimeos\MW\View\Helper\Request\Symfony2( $view, $request );
 	}
 
 
 	public function testTransform()
 	{
-		$this->assertInstanceOf( '\\Aimeos\\MW\\View\\Helper\\Request\\Symfony2', $this->object->transform() );
-	}
-
-
-	public function testGetBody()
-	{
-		$this->mock->expects( $this->once() )->method( 'getContent' )
-			->will( $this->returnValue( 'body' ) );
-
-		$this->assertEquals( 'body', $this->object->transform()->getBody() );
+		$this->assertInstanceOf( '\Aimeos\MW\View\Helper\Request\Symfony2', $this->object->transform() );
 	}
 
 
 	public function testGetClientAddress()
 	{
-		$this->mock->expects( $this->once() )->method( 'getClientIp' )
-			->will( $this->returnValue( '127.0.0.1' ) );
-
-		$this->assertEquals( '127.0.0.1', $this->object->transform()->getClientAddress() );
+		$this->assertEquals( '127.0.0.1', $this->object->getClientAddress() );
 	}
 
 
 	public function testGetTarget()
 	{
-		$this->mock->expects( $this->once() )->method( 'get' )
-			->will( $this->returnValue( 'test' ) );
-
-		$this->assertEquals( 'test', $this->object->transform()->getTarget() );
-	}
-
-
-	public function testGetUploadedFiles()
-	{
-		$this->assertEquals( array(), $this->object->transform()->getUploadedFiles() );
+		$this->assertEquals( null, $this->object->getTarget() );
 	}
 }

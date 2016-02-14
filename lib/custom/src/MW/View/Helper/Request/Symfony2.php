@@ -2,16 +2,13 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2014-2015
+ * @copyright Aimeos (aimeos.org), 2014-2016
  * @package MW
  * @subpackage View
  */
 
 
 namespace Aimeos\MW\View\Helper\Request;
-
-
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 
 /**
@@ -35,21 +32,12 @@ class Symfony2
 	 */
 	public function __construct( $view, \Symfony\Component\HttpFoundation\Request $request )
 	{
-		$files = ( $request->files ?: array() );
-		parent::__construct( $view, null, null, null, $files );
-
 		$this->request = $request;
-	}
 
+		$factory = new \Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory();
+		$psr7request = $factory->createRequest( $request );
 
-	/**
-	 * Returns the request body.
-	 *
-	 * @return string Request body
-	 */
-	public function getBody()
-	{
-		return $this->request->getContent();
+		parent::__construct( $view, $psr7request );
 	}
 
 
@@ -72,37 +60,5 @@ class Symfony2
 	public function getTarget()
 	{
 		return $this->request->get( '_route' );
-	}
-
-
-	/**
-	 * Creates a normalized file upload data from the given array.
-	 *
-	 * @param \Traversable|array $files File upload data
-	 * @return array Multi-dimensional list of file objects
-	 */
-	protected function createUploadedFiles( $files )
-	{
-		$list = array();
-
-		foreach( $files as $key => $value )
-		{
-			if( $value instanceof UploadedFile )
-			{
-				$list[$key] = new \Aimeos\MW\View\Helper\Request\File\Standard(
-					$value->getRealPath(),
-					$value->getClientOriginalName(),
-					$value->getSize(),
-					$value->getClientMimeType(),
-					$value->getError()
-				);
-			}
-			elseif( is_array( $value ) )
-			{
-				$list[$key] = $this->createUploadedFiles( $value );
-			}
-		}
-
-		return $list;
 	}
 }
