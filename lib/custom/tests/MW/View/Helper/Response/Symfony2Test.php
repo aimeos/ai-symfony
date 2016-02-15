@@ -17,17 +17,12 @@ class Symfony2Test extends \PHPUnit_Framework_TestCase
 
 	protected function setUp()
 	{
-		if( !class_exists( '\Symfony\Component\HttpFoundation\Response' ) ) {
-			$this->markTestSkipped( '\Symfony\Component\HttpFoundation\Response is not available' );
-		}
-
-		if( !class_exists( '\Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory' ) ) {
-			$this->markTestSkipped( '\Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory is not available' );
+		if( !class_exists( '\Zend\Diactoros\Response' ) ) {
+			$this->markTestSkipped( '\Zend\Diactoros\Response is not available' );
 		}
 
 		$view = new \Aimeos\MW\View\Standard();
-		$request = new \Symfony\Component\HttpFoundation\Response( 'Content' );
-		$this->object = new \Aimeos\MW\View\Helper\Response\Symfony2( $view, $request );
+		$this->object = new \Aimeos\MW\View\Helper\Response\Symfony2( $view );
 	}
 
 
