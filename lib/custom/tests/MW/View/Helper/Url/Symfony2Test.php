@@ -57,12 +57,6 @@ class Symfony2Test extends \PHPUnit_Framework_TestCase
 	}
 
 
-	public function testTransformSlashes()
-	{
-		$this->assertEquals( '/unittest/lists?test=a/b', $this->object->transform( 'catalog_list', null, null, array( 'test' => 'a/b' ) ) );
-	}
-
-
 	public function testTransformArrays()
 	{
 		$this->assertEquals( '/unittest/lists?test%5B0%5D=a&test%5B1%5D=b', $this->object->transform( 'catalog_list', null, null, array( 'test' => array( 'a', 'b' ) ) ) );
