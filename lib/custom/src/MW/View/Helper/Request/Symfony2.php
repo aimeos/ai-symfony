@@ -116,7 +116,7 @@ class Symfony2
 					$file->getClientMimeType()
 				);
 			}
-			else
+			elseif( is_array( $value ) )
 			{
 				$list[$key] = $this->getFiles( $value );
 			}
