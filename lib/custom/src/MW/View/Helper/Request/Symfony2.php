@@ -109,11 +109,11 @@ class Symfony2
 			if( $value instanceof \Symfony\Component\HttpFoundation\File\UploadedFile )
 			{
 				$list[$key] = new \Zend\Diactoros\UploadedFile(
-					$file->getRealPath(),
-					$file->getSize(),
-					$file->getError(),
-					$file->getClientOriginalName(),
-					$file->getClientMimeType()
+					$value->getRealPath(),
+					$value->getSize(),
+					$value->getError(),
+					$value->getClientOriginalName(),
+					$value->getClientMimeType()
 				);
 			}
 			elseif( is_array( $value ) )
