@@ -18,7 +18,7 @@ namespace Aimeos\MW\View\Helper\Url;
  * @subpackage View
  */
 class Symfony2
-	extends \Aimeos\MW\View\Helper\Base
+	extends \Aimeos\MW\View\Helper\Url\Base
 	implements \Aimeos\MW\View\Helper\Url\Iface
 {
 	private $router;
@@ -55,9 +55,10 @@ class Symfony2
 	public function transform( $target = null, $controller = null, $action = null, array $params = array(), array $trailing = array(), array $config = array() )
 	{
 		if( !empty( $trailing ) ) {
-			$params['trailing'] = str_replace( '/', '_', join( '_', $trailing ) );
+			$params['trailing'] = join( '_', $trailing );
 		}
 
+		$params = $this->sanitize( $params );
 		$refType = \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_PATH;
 
 		if( isset( $config['absoluteUri'] ) ) {
