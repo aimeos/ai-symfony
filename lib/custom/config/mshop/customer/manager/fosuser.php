@@ -19,9 +19,10 @@ return array(
 				"firstname", "lastname", "address1", "address2", "address3",
 				"postal", "city", "state", "countryid", "langid", "telephone",
 				"email_canonical", "email", "telefax", "website", "birthday", "enabled",
-				"vdate", "password", "mtime", "editor", "roles", "ctime"
+				"vdate", "password", "mtime", "editor", "roles", "ctime",
+				"salt", "locked", "expired", "credentials_expired"
 			) VALUES (
-				?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
+				?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, \'\', 0, 0, 0
 			)
 		',
 	),
@@ -75,6 +76,12 @@ return array(
 		',
 	),
 	'newid' => array(
-		'mysql' => 'SELECT LAST_INSERT_ID()'
+		'db2' => 'SELECT IDENTITY_VAL_LOCAL()',
+		'mysql' => 'SELECT LAST_INSERT_ID()',
+		'oracle' => 'SELECT fos_user.CURRVAL FROM DUAL',
+		'pgsql' => 'SELECT lastval()',
+		'sqlite' => 'SELECT last_insert_rowid()',
+		'sqlsrv' => 'SELECT SCOPE_IDENTITY()',
+		'sqlanywhere' => 'SELECT @@IDENTITY',
 	),
 );
