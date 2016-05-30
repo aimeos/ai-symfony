@@ -307,7 +307,7 @@ class FosUserTest extends \PHPUnit_Framework_TestCase
 		$manager = \Aimeos\MShop\Customer\Manager\Factory::createManager( $this->context, 'FosUser' );
 
 		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'customer.code', 'unitCustomer3' ) );
+		$search->setConditions( $search->compare( '==', 'customer.code', 'UTC003' ) );
 		$search->setSlice( 0, 1 );
 
 		$results = $manager->searchItems( $search );

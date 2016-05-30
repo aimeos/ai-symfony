@@ -67,14 +67,14 @@ class FosUserTest extends \PHPUnit_Framework_TestCase
 	{
 		$search = $this->object->createSearch();
 		$conditions = array(
-			$search->compare( '==', 'customer.code', 'unitCustomer3' ),
+			$search->compare( '==', 'customer.code', 'UTC003' ),
 			$search->compare( '==', 'customer.editor', $this->editor )
 		);
 		$search->setConditions( $search->combine( '&&', $conditions ) );
 		$items = $this->object->searchItems( $search, array( 'text' ) );
 
 		if( ( $expected = reset( $items ) ) === false ) {
-			throw new \Exception( 'No customer item with code "unitCustomer3" found' );
+			throw new \Exception( 'No customer item with code "UTC003" found' );
 		}
 
 		$actual = $this->object->getItem( $expected->getId(), array( 'text' ) );
@@ -149,8 +149,8 @@ class FosUserTest extends \PHPUnit_Framework_TestCase
 
 		$expr = array();
 		$expr[] = $search->compare( '!=', 'customer.id', null );
-		$expr[] = $search->compare( '==', 'customer.label', 'unitCustomer2' );
-		$expr[] = $search->compare( '==', 'customer.code', 'unitCustomer2' );
+		$expr[] = $search->compare( '==', 'customer.label', 'UTC002' );
+		$expr[] = $search->compare( '==', 'customer.code', 'UTC002' );
 
 		$expr[] = $search->compare( '>=', 'customer.salutation', '' );
 		$expr[] = $search->compare( '>=', 'customer.company', '' );

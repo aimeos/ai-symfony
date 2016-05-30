@@ -51,7 +51,7 @@ class CustomerAddFosUserTestData extends \Aimeos\MW\Setup\Task\CustomerAddTestDa
 		$customerAddressManager = $customerManager->getSubManager( 'address', 'FosUser' );
 
 		$search = $customerManager->createSearch();
-		$search->setConditions( $search->compare( '=~', 'customer.code', 'UTC00' ) );
+		$search->setConditions( $search->compare( '==', 'customer.code', array( 'UTC001', 'UTC002', 'UTC003' ) ) );
 		$items = $customerManager->searchItems( $search );
 
 		$this->conn->begin();

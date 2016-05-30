@@ -25,14 +25,14 @@ class FosUserTest extends \PHPUnit_Framework_TestCase
 
 		$search = $customer->createSearch();
 		$conditions = array(
-			$search->compare( '==', 'customer.label', 'unitCustomer1' ),
+			$search->compare( '==', 'customer.code', 'UTC001' ),
 			$search->compare( '==', 'customer.editor', $this->editor )
 		);
 		$search->setConditions( $search->combine( '&&', $conditions ) );
 		$result = $customer->searchItems( $search );
 
 		if( ( $customerItem = reset( $result ) ) === false ) {
-			throw new \Exception( sprintf( 'No customer item found for label "%1$s"', 'unitCustomer1' ) );
+			throw new \Exception( sprintf( 'No customer item found for code "%1$s"', 'UTC001' ) );
 		}
 
 		$this->fixture = array(
