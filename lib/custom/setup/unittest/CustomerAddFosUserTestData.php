@@ -26,9 +26,9 @@ class CustomerAddFosUserTestData extends \Aimeos\MW\Setup\Task\CustomerAddTestDa
 
 
 	/**
-	 * Adds customer TYPO3 test data.
+	 * Adds attribute test data.
 	 */
-	protected function process()
+	public function migrate()
 	{
 		$iface = '\\Aimeos\\MShop\\Context\\Item\\Iface';
 		if( !( $this->additional instanceof $iface ) ) {
@@ -36,10 +36,10 @@ class CustomerAddFosUserTestData extends \Aimeos\MW\Setup\Task\CustomerAddTestDa
 		}
 
 		$this->msg( 'Adding Fos user bundle customer test data', 0 );
-		$this->additional->setEditor( 'ai-symfony:unittest' );
 
 		$parentIds = array();
 		$ds = DIRECTORY_SEPARATOR;
+		$this->additional->setEditor( 'ai-symfony:unittest' );
 		$path = __DIR__ . $ds . 'data' . $ds . 'customer.php';
 
 		if( ( $testdata = include( $path ) ) === false ){
@@ -50,12 +50,14 @@ class CustomerAddFosUserTestData extends \Aimeos\MW\Setup\Task\CustomerAddTestDa
 		$customerManager = \Aimeos\MShop\Customer\Manager\Factory::createManager( $this->additional, 'FosUser' );
 		$customerAddressManager = $customerManager->getSubManager( 'address', 'FosUser' );
 
-		foreach( $customerManager->searchItems( $customerManager->createSearch() ) as $id => $item ) {
-			$parentIds[ 'customer/' . $item->getCode() ] = $id;
-		}
+		$search = $customerManager->createSearch();
+		$search->setConditions( $search->compare( '=~', 'customer.code', 'UTC00' ) );
+		$items = $customerManager->searchItems( $search );
 
 		$this->conn->begin();
 
+		$customerManager->deleteItems( array_keys( $items ) );
+		$parentIds = $this->addCustomerData( $testdata, $customerManager, $customerAddressManager->createItem() );
 		$this->addCustomerAddressData( $testdata, $customerAddressManager, $parentIds );
 
 		$this->conn->commit();
