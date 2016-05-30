@@ -1,6 +1,11 @@
 sudo: false
 language: php
 
+addons:
+  apt:
+    packages:
+    - php5-pgsql
+
 php:
   - hhvm
   - 7.0
@@ -9,12 +14,25 @@ php:
   - 5.4
 
 env:
-  - SYMFONY_VERSION=2.4.*
-  - SYMFONY_VERSION=2.5.*
-  - SYMFONY_VERSION=2.6.*
-  - SYMFONY_VERSION=2.7.*
-  - SYMFONY_VERSION=2.8.*
-  - SYMFONY_VERSION=3.0.*
+  - SYMFONY_VERSION="2.4.*" DB=mysql
+  - SYMFONY_VERSION="2.5.*" DB=mysql
+  - SYMFONY_VERSION="2.6.*" DB=mysql
+  - SYMFONY_VERSION="2.7.*" DB=mysql
+  - SYMFONY_VERSION="2.8.*" DB=mysql
+  - SYMFONY_VERSION="3.0.*" DB=mysql
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.0
+      env: SYMFONY_VERSION="2.8.*" DB=pgsql
+    - php: 7.0
+      env: SYMFONY_VERSION="3.0.*" DB=pgsql
+  exclude:
+    - php: 5.3
+      env: SYMFONY_VERSION="3.0.*" DB=mysql
+    - php: 5.4
+      env: SYMFONY_VERSION="3.0.*" DB=mysql
 
 before_script:
   - git clone --depth=50 --branch=master git://github.com/aimeos/aimeos-core.git ../aimeos-core
@@ -22,20 +40,15 @@ before_script:
   - mv ../ai-symfony ext/
   - if [[ $TRAVIS_PHP_VERSION != "hhvm" ]]; then echo 'memory_limit = -1' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi
   - travis_retry composer require "symfony/symfony:${SYMFONY_VERSION}" "symfony/psr-http-message-bridge:dev-master" "zendframework/zend-diactoros:~1.0"
-  - mysql -e 'create database aimeos;'
-  - echo "<?php return array( 'db' => array( 'adapter' => 'mysql', 'host' => '127.0.0.1', 'database' => 'aimeos', 'username' => 'root', 'password' => '', 'limit' => 2, 'opt-persistent' => false, 'stmt' => array( \"SET NAMES 'utf8'\", \"SET SESSION sql_mode='ANSI'\" ) ) );" > config/resource.php
+  - if [[ $DB = 'mysql' ]]; then mysql -e "CREATE DATABASE aimeos;"; fi
+  - if [[ $DB = 'mysql' ]]; then echo "<?php return array( 'db' => array( 'adapter' => 'mysql', 'host' => '127.0.0.1', 'database' => 'aimeos', 'username' => 'root', 'password' => '', 'limit' => 2, 'opt-persistent' => false, 'stmt' => array( \"SET NAMES 'utf8'\", \"SET SESSION sql_mode='ANSI'\" ) ) );" > config/resource.php; fi
+  - if [[ $DB = 'pgsql' ]]; then psql -c "CREATE DATABASE aimeos;" -p 5432 -U postgres postgres; fi
+  - if [[ $DB = 'pgsql' ]]; then psql -c "CREATE USER aimeos PASSWORD 'aimeos';" -p 5432 -U postgres postgres; fi
+  - if [[ $DB = 'pgsql' ]]; then psql -c "GRANT ALL PRIVILEGES ON DATABASE aimeos TO aimeos;" -p 5432 -U postgres postgres; fi
+  - if [[ $DB = 'pgsql' ]]; then echo "<?php return array( 'db' => array( 'adapter' => 'pgsql', 'host' => '127.0.0.1', 'port' => 5432, 'database' => 'aimeos', 'username' => 'aimeos', 'password' => 'aimeos', 'limit' => 2, 'opt-persistent' => false, 'stmt' => array() ) );" > config/resource.php; fi
 
 script:
   - vendor/bin/phing -Ddir=ext/ai-symfony setup coverageext checkext
 
 after_success:
   - php vendor/bin/coveralls -c ext/ai-symfony/.coveralls.yml
-
-matrix:
-  fast_finish: true
-  exclude:
-    - php: 5.3
-      env: SYMFONY_VERSION=3.0.*
-    - php: 5.4
-      env: SYMFONY_VERSION=3.0.*
-  
