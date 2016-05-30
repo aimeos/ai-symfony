@@ -56,9 +56,9 @@ return array(
 			$table->addUniqueIndex( array( 'username_canonical' ), 'unq_fosus_username' );
 			$table->addUniqueIndex( array( 'email_canonical' ), 'unq_fosus_email' );
 			$table->addIndex( array( 'langid' ), 'idx_fosus_langid' );
-			$table->addIndex( array( 'status', 'lastname', 'firstname' ), 'idx_fosus_status_lastname_firstname' );
-			$table->addIndex( array( 'status', 'address1', 'address2' ), 'idx_fosus_status_address1_address2' );
-			$table->addIndex( array( 'status', 'postal', 'city' ), 'idx_fosus_status_postal_city' );
+			$table->addIndex( array( 'enabled', 'lastname', 'firstname' ), 'idx_fosus_enabled_ln_fn' );
+			$table->addIndex( array( 'enabled', 'address1', 'address2' ), 'idx_fosus_enabled_ad1_ad2' );
+			$table->addIndex( array( 'enabled', 'postal', 'city' ), 'idx_fosus_enabled_postal_city' );
 			$table->addIndex( array( 'lastname' ), 'idx_fosus_lastname' );
 			$table->addIndex( array( 'address1' ), 'idx_fosus_address1' );
 			$table->addIndex( array( 'postal' ), 'idx_fosus_postal' );
