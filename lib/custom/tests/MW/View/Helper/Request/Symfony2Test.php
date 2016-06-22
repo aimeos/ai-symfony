@@ -24,8 +24,15 @@ class Symfony2Test extends \PHPUnit_Framework_TestCase
 		}
 
 		$view = new \Aimeos\MW\View\Standard();
+		$files = array( 'test' => array( 'file' => array(
+			'name' => 'test.txt',
+			'type' => 'text/plain',
+			'tmp_name' => tempnam( sys_get_temp_dir(), 'ai-symfony_' ),
+			'error' => UPLOAD_ERR_OK,
+			'size' => 123
+		) ) );
 		$param = array( 'HTTP_HOST' => 'localhost', 'REMOTE_ADDR' => '127.0.0.1' );
-		$request = new \Symfony\Component\HttpFoundation\Request( array(), array(), array(), array(), array(), $param, 'Content' );
+		$request = new \Symfony\Component\HttpFoundation\Request( array(), array(), array(), array(), $files, $param, 'Content' );
 		$this->object = new \Aimeos\MW\View\Helper\Request\Symfony2( $view, $request );
 	}
 
