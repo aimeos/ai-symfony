@@ -9,11 +9,11 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aimeos/ai-symfony/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aimeos/ai-symfony/?branch=master)
 [![HHVM Status](http://hhvm.h4cc.de/badge/aimeos/ai-symfony.svg)](http://hhvm.h4cc.de/package/aimeos/ai-symfony)
 
-The Aimeos web shop components can integrate into almost any PHP application and uses the infrastructure of the application for building URLs, caching content, configuration settings, logging messages, session handling, sending e-mails or handling translations.
+The Aimeos e-commerce components can integrate into almost any PHP application and uses the infrastructure of the application for building URLs, caching content, configuration settings, logging messages, session handling, sending e-mails or handling translations.
 
-The ai-symfony extension integrates Aimeos into the Symfony framework and utilizes the native Symfony components for session handling, generating URLs and accessing the user table from the FOS user bundle.
+The ai-symfony extension integrates Aimeos into the Symfony framework and utilizes the native Symfony components for session handling and generating URLs.
 
-If you are using the Symfony framework, you don't have to install and set up the ai-symfony extension yourself. Instead, use the [Aimeos Symfony bundle](https://github.com/aimeos/aimeos-symfony) to create a web shop within minutes.
+If you are using the Symfony framework, you don't have to install and set up the ai-symfony extension yourself. Instead, use the [Aimeos Symfony bundle](https://github.com/aimeos/aimeos-symfony) to create an online shop within minutes.
 
 ## License
 
