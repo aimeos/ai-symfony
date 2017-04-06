@@ -65,14 +65,14 @@ class Symfony2Test extends \PHPUnit_Framework_TestCase
 
 	public function testTransformTrailing()
 	{
-		$this->assertEquals( '/unittest/lists?trailing=a_b', $this->object->transform( 'catalog_list', null, null, array(), array( 'a', 'b' ) ) );
+		$this->assertEquals( '/unittest/lists?trailing=a_b', $this->object->transform( 'catalog_list', null, null, [], array( 'a', 'b' ) ) );
 	}
 
 
 	public function testTransformAbsolute()
 	{
 		$options = array( 'absoluteUri' => true );
-		$result = $this->object->transform( 'catalog_list', null, null, array(), array(), $options );
+		$result = $this->object->transform( 'catalog_list', null, null, [], [], $options );
 		$this->assertEquals( 'http://localhost/unittest/lists', $result );
 	}
 }

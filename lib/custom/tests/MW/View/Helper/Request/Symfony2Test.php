@@ -32,7 +32,7 @@ class Symfony2Test extends \PHPUnit_Framework_TestCase
 			'size' => 123
 		) ) );
 		$param = array( 'HTTP_HOST' => 'localhost', 'REMOTE_ADDR' => '127.0.0.1' );
-		$request = new \Symfony\Component\HttpFoundation\Request( array(), array(), array(), array(), $files, $param, 'Content' );
+		$request = new \Symfony\Component\HttpFoundation\Request( [], [], [], [], $files, $param, 'Content' );
 		$this->object = new \Aimeos\MW\View\Helper\Request\Symfony2( $view, $request );
 	}
 
