@@ -12,7 +12,7 @@ namespace Aimeos\MW\Session;
 /**
  * Test class for \Aimeos\MW\Session\Symfony2.
  */
-class Symfony2Test extends \PHPUnit_Framework_TestCase
+class Symfony2Test extends \PHPUnit\Framework\TestCase
 {
 	private $object;
 

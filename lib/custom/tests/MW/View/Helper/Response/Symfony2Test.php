@@ -9,7 +9,7 @@
 namespace Aimeos\MW\View\Helper\Response;
 
 
-class Symfony2Test extends \PHPUnit_Framework_TestCase
+class Symfony2Test extends \PHPUnit\Framework\TestCase
 {
 	private $object;
 	private $mock;

@@ -12,7 +12,7 @@ namespace Aimeos\MW\View\Helper\Url;
 /**
  * Test class for \Aimeos\MW\View\Helper\Url\Symfony2.
  */
-class Symfony2Test extends \PHPUnit_Framework_TestCase
+class Symfony2Test extends \PHPUnit\Framework\TestCase
 {
 	private $object;
 
