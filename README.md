@@ -7,7 +7,7 @@
 [![Build Status](https://travis-ci.org/aimeos/ai-symfony.png?branch=master)](https://travis-ci.org/aimeos/ai-symfony)
 [![Coverage Status](https://coveralls.io/repos/aimeos/ai-symfony/badge.svg?branch=master)](https://coveralls.io/r/aimeos/ai-symfony?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aimeos/ai-symfony/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aimeos/ai-symfony/?branch=master)
-[![HHVM Status](http://hhvm.h4cc.de/badge/aimeos/ai-symfony.svg)](http://hhvm.h4cc.de/package/aimeos/ai-symfony)
+[![License](https://poser.pugx.org/aimeos/ai-symfony/license.svg)](https://packagist.org/packages/aimeos/ai-symfony)
 
 The Aimeos e-commerce components can integrate into almost any PHP application and uses the infrastructure of the application for building URLs, caching content, configuration settings, logging messages, session handling, sending e-mails or handling translations.
 
