@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="Aimeos Symfony2 extension - custom library extensions" default="test">
+<project name="Aimeos Symfony extension - custom library extensions" default="test">
 
 	<target name="test" description="Executes unit tests">
 		<echo msg="Executing unit tests" />
