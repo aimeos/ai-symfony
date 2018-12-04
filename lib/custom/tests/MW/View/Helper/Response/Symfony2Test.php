@@ -34,6 +34,6 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 
 	public function testCreateStream()
 	{
-		$this->assertInstanceOf( '\Psr\Http\Message\StreamInterface', $this->object->createStream( __FILE__ ) );
+		$this->assertInstanceOf( \Psr\Http\Message\StreamInterface::class, $this->object->createStream( __FILE__ ) );
 	}
 }
