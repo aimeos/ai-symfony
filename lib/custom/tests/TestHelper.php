@@ -82,7 +82,7 @@ class TestHelper
 
 		$ctx->setLocale( $localeItem );
 
-		$ctx->setEditor( 'ai-symfony:unittest' );
+		$ctx->setEditor( 'ai-symfony:lib/custom' );
 
 		return $ctx;
 	}
