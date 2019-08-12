@@ -17,7 +17,7 @@ namespace Aimeos\MW\Session;
  * @package MW
  * @subpackage Session
  */
-class Symfony2 implements \Aimeos\MW\Session\Iface
+class Symfony2 extends Base implements \Aimeos\MW\Session\Iface
 {
 	private $object;
 
