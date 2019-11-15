@@ -47,7 +47,7 @@ class Symfony2
 	 *
 	 * @return string Client IP address
 	 */
-	public function getClientAddress()
+	public function getClientAddress() : string
 	{
 		return $this->request->getClientIp();
 	}
@@ -58,7 +58,7 @@ class Symfony2
 	 *
 	 * @return string|null Current page or route name
 	 */
-	public function getTarget()
+	public function getTarget() :?string
 	{
 		return $this->request->get( '_route' );
 	}
@@ -70,7 +70,7 @@ class Symfony2
 	 * @param \Symfony\Component\HttpFoundation\Request $nativeRequest Symfony request object
 	 * @return \Psr\Http\Message\ServerRequestInterface PSR-7 request object
 	 */
-	protected function createRequest( \Symfony\Component\HttpFoundation\Request $nativeRequest )
+	protected function createRequest( \Symfony\Component\HttpFoundation\Request $nativeRequest ) : \Psr\Http\Message\ServerRequestInterface
 	{
 		$files = ServerRequestFactory::normalizeFiles( $this->getFiles( $nativeRequest->files->all() ) );
 		$server = ServerRequestFactory::normalizeServer( $nativeRequest->server->all() );
@@ -100,7 +100,7 @@ class Symfony2
 	 * @param array $files Multi-dimensional list of uploaded files from Symfony request
 	 * @return array Multi-dimensional list of uploaded files as PSR-7 objects
 	 */
-	protected function getFiles( array $files )
+	protected function getFiles( array $files ) : array
 	{
 		$list = [];
 

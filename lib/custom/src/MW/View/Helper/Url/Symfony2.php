@@ -32,7 +32,7 @@ class Symfony2
 	 * @param Symfony\Component\Routing\RouterInterface $router Symfony2 Router implementation
 	 * @param array $fixed Fixed parameters that should be added to each URL
 	 */
-	public function __construct( $view, \Symfony\Component\Routing\RouterInterface $router, array $fixed )
+	public function __construct( \Aimeos\MW\View\Iface $view, \Symfony\Component\Routing\RouterInterface $router, array $fixed )
 	{
 		parent::__construct( $view );
 
@@ -52,7 +52,8 @@ class Symfony2
 	 * @param array $config Additional configuration parameter per URL
 	 * @return string Complete URL that can be used in the template
 	 */
-	public function transform( $target = null, $controller = null, $action = null, array $params = [], array $trailing = [], array $config = [] )
+	public function transform( string $target = null, string $controller = null, string $action = null,
+		array $params = [], array $trailing = [], array $config = [] ) : string
 	{
 		if( !empty( $trailing ) ) {
 			$params['trailing'] = join( '_', $trailing );
