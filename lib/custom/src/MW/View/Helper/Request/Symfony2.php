@@ -58,7 +58,7 @@ class Symfony2
 	 *
 	 * @return string|null Current page or route name
 	 */
-	public function getTarget() :?string
+	public function getTarget() : ?string
 	{
 		return $this->request->get( '_route' );
 	}
