@@ -15,7 +15,7 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 	private $mock;
 
 
-	protected function setUp()
+	protected function setUp() : void
 	{
 		if( !class_exists( '\Zend\Diactoros\Response' ) ) {
 			$this->markTestSkipped( '\Zend\Diactoros\Response is not available' );

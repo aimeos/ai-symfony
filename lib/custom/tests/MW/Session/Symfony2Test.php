@@ -23,7 +23,7 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 	 *
 	 * @access protected
 	 */
-	protected function setUp()
+	protected function setUp() : void
 	{
 		if( class_exists( 'Symfony\Component\HttpFoundation\Session\Session' ) === false ) {
 			$this->markTestSkipped( 'Class Symfony\Component\HttpFoundation\Session\Session not found' );
@@ -41,7 +41,7 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 	 *
 	 * @access protected
 	 */
-	protected function tearDown()
+	protected function tearDown() : void
 	{
 		unset( $this->object );
 	}

@@ -23,7 +23,7 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 	 *
 	 * @access protected
 	 */
-	protected function setUp()
+	protected function setUp() : void
 	{
 		if( !class_exists( '\Symfony\Component\Routing\Router' ) ) {
 			$this->markTestSkipped( 'Symfony\Component\Routing\Router is not available' );
@@ -45,7 +45,7 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 	 *
 	 * @access protected
 	 */
-	protected function tearDown()
+	protected function tearDown() : void
 	{
 		$this->object = null;
 	}

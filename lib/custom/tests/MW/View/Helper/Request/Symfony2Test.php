@@ -13,7 +13,7 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 	private $mock;
 
 
-	protected function setUp()
+	protected function setUp() : void
 	{
 		if( !class_exists( '\Symfony\Component\HttpFoundation\Request' ) ) {
 			$this->markTestSkipped( '\Symfony\Component\HttpFoundation\Request is not available' );
