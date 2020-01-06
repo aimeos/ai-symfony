@@ -1,12 +1,14 @@
 <?php
 
-namespace Aimeos\MW\View\Helper\Request;
-
-
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Aimeos (aimeos.org), 2015-2018
  */
+
+
+namespace Aimeos\MW\View\Helper\Request;
+
+
 class Symfony2Test extends \PHPUnit\Framework\TestCase
 {
 	private $object;
@@ -15,14 +17,6 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 
 	protected function setUp() : void
 	{
-		if( !class_exists( '\Symfony\Component\HttpFoundation\Request' ) ) {
-			$this->markTestSkipped( '\Symfony\Component\HttpFoundation\Request is not available' );
-		}
-
-		if( !class_exists( '\Zend\Diactoros\Response' ) ) {
-			$this->markTestSkipped( '\Zend\Diactoros\Response is not available' );
-		}
-
 		$view = new \Aimeos\MW\View\Standard();
 		$files = array( 'test' => array( 'file' => array(
 			'name' => 'test.txt',
