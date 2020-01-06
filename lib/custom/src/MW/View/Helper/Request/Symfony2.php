@@ -74,7 +74,6 @@ class Symfony2
 		$method = $nativeRequest->getMethod();
 		$uri = $nativeRequest->getUri();
 
-		$psr17Factory = new \Nyholm\Psr7\Factory\Psr17Factory();
 		$request = new \Nyholm\Psr7\ServerRequest( $method, $uri, $headers, $nativeRequest->getContent(), '1.1', $server );
 		$request = $request->withCookieParams( $nativeRequest->cookies->all() )
 			->withParsedBody( $nativeRequest->request->all() )
