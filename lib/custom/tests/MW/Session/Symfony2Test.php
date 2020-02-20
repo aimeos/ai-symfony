@@ -9,20 +9,11 @@
 namespace Aimeos\MW\Session;
 
 
-/**
- * Test class for \Aimeos\MW\Session\Symfony2.
- */
 class Symfony2Test extends \PHPUnit\Framework\TestCase
 {
 	private $object;
 
 
-	/**
-	 * Sets up the fixture, for example, opens a network connection.
-	 * This method is called before a test is executed.
-	 *
-	 * @access protected
-	 */
 	protected function setUp() : void
 	{
 		if( class_exists( 'Symfony\Component\HttpFoundation\Session\Session' ) === false ) {
@@ -35,34 +26,66 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 	}
 
 
-	/**
-	 * Tears down the fixture, for example, closes a network connection.
-	 * This method is called after a test is executed.
-	 *
-	 * @access protected
-	 */
 	protected function tearDown() : void
 	{
 		unset( $this->object );
 	}
 
 
-	public function testGetDefault()
+	public function testDel()
 	{
-		$this->assertEquals( null, $this->object->get( 'notexist' ) );
+		$this->object->set( 'test', '123456789' );
+		$this->assertEquals( '123456789', $this->object->get( 'test' ) );
+
+		$result = $this->object->del( 'test' );
+
+		$this->assertInstanceOf( \Aimeos\MW\Session\Iface::class, $result );
+		$this->assertEquals( null, $this->object->get( 'test' ) );
 	}
 
 
-	public function testGetSet()
+	public function testGet()
 	{
-		$this->object->set( 'key', 'value' );
-		$this->assertEquals( 'value', $this->object->get( 'key' ) );
+		$this->assertEquals( null, $this->object->get( 'test' ) );
+
+		$this->object->set( 'test', '123456789' );
+		$this->assertEquals( '123456789', $this->object->get( 'test' ) );
+
+		$this->object->set( 'test', ['123456789'] );
+		$this->assertEquals( ['123456789'], $this->object->get( 'test' ) );
 	}
 
 
-	public function testGetSetArray()
+	public function testPull()
 	{
-		$this->object->set( 'key', array( 'value' ) );
-		$this->assertEquals( array( 'value' ), $this->object->get( 'key' ) );
+		$this->object->set( 'test', '123456789' );
+		$this->assertEquals( '123456789', $this->object->get( 'test' ) );
+
+		$this->assertEquals( '123456789', $this->object->pull( 'test' ) );
+		$this->assertEquals( null, $this->object->pull( 'test' ) );
+	}
+
+
+	public function testRemove()
+	{
+		$this->object->set( 'test', '123456789' );
+		$this->assertEquals( '123456789', $this->object->get( 'test' ) );
+
+		$result = $this->object->remove( ['test'] );
+
+		$this->assertInstanceOf( \Aimeos\MW\Session\Iface::class, $result );
+		$this->assertEquals( null, $this->object->get( 'test' ) );
+	}
+
+
+	public function testSet()
+	{
+		$this->object->set( 'test', null );
+		$this->assertEquals( null, $this->object->get( 'test' ) );
+
+		$result = $this->object->set( 'test', '234' );
+
+		$this->assertInstanceOf( \Aimeos\MW\Session\Iface::class, $result );
+		$this->assertEquals( '234', $this->object->get( 'test' ) );
 	}
 }
