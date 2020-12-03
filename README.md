@@ -4,7 +4,7 @@
 
 #Aimeos Symfony adapter
 
-[![Build Status](https://travis-ci.org/aimeos/ai-symfony.png?branch=master)](https://travis-ci.org/aimeos/ai-symfony)
+[![Build Status](https://circleci.com/gh/aimeos/ai-symfony.svg?style=shield)](https://circleci.com/gh/aimeos/ai-symfony)
 [![Coverage Status](https://coveralls.io/repos/aimeos/ai-symfony/badge.svg?branch=master)](https://coveralls.io/r/aimeos/ai-symfony?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aimeos/ai-symfony/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aimeos/ai-symfony/?branch=master)
 [![License](https://poser.pugx.org/aimeos/ai-symfony/license.svg)](https://packagist.org/packages/aimeos/ai-symfony)
