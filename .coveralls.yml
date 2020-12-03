@@ -1,3 +1,0 @@
-src_dir: ext/ai-symfony
-json_path: ext/ai-symfony/coveralls.json
-coverage_clover: ext/ai-symfony/lib/custom/tests/coverage.xml
