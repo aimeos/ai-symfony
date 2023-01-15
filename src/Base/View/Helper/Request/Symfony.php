@@ -12,12 +12,12 @@ namespace Aimeos\Base\View\Helper\Request;
 
 
 /**
- * View helper class for retrieving data from Symfony2 requests.
+ * View helper class for retrieving data from Symfony requests.
  *
  * @package MW
  * @subpackage View
  */
-class Symfony2
+class Symfony
 	extends \Aimeos\Base\View\Helper\Request\Standard
 	implements \Aimeos\Base\View\Helper\Request\Iface
 {
@@ -28,7 +28,7 @@ class Symfony2
 	 * Initializes the URL view helper.
 	 *
 	 * @param \Aimeos\Base\View\Iface $view View instance with registered view helpers
-	 * @param \Symfony\Component\HttpFoundation\Request $request Symfony2 request object
+	 * @param \Symfony\Component\HttpFoundation\Request $request Symfony request object
 	 */
 	public function __construct( $view, \Symfony\Component\HttpFoundation\Request $request )
 	{

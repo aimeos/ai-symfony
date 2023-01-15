@@ -12,12 +12,12 @@ namespace Aimeos\Base\View\Helper\Url;
 
 
 /**
- * View helper class for building URLs using Symfony2 Router.
+ * View helper class for building URLs using Symfony Router.
  *
  * @package MW
  * @subpackage View
  */
-class Symfony2
+class Symfony
 	extends \Aimeos\Base\View\Helper\Url\Base
 	implements \Aimeos\Base\View\Helper\Url\Iface
 {
@@ -29,7 +29,7 @@ class Symfony2
 	 * Initializes the URL view helper.
 	 *
 	 * @param \Aimeos\Base\View\Iface $view View instance with registered view helpers
-	 * @param Symfony\Component\Routing\RouterInterface $router Symfony2 Router implementation
+	 * @param Symfony\Component\Routing\RouterInterface $router Symfony Router implementation
 	 * @param array $fixed Fixed parameters that should be added to each URL
 	 */
 	public function __construct( \Aimeos\Base\View\Iface $view, \Symfony\Component\Routing\RouterInterface $router, array $fixed )

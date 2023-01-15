@@ -12,12 +12,12 @@ namespace Aimeos\Base\Session;
 
 
 /**
- * Implementation using Symfony2 sessions.
+ * Implementation using Symfony sessions.
  *
  * @package MW
  * @subpackage Session
  */
-class Symfony2 extends Base implements \Aimeos\Base\Session\Iface
+class Symfony extends Base implements \Aimeos\Base\Session\Iface
 {
 	private $object;
 
@@ -25,7 +25,7 @@ class Symfony2 extends Base implements \Aimeos\Base\Session\Iface
 	/**
 	 * Initializes the object.
 	 *
-	 * @param Symfony\Component\HttpFoundation\Session\SessionInterface $object Symfony2 session object
+	 * @param Symfony\Component\HttpFoundation\Session\SessionInterface $object Symfony session object
 	 */
 	public function __construct( \Symfony\Component\HttpFoundation\Session\SessionInterface $object )
 	{

@@ -12,12 +12,12 @@ namespace Aimeos\Base\View\Helper\Response;
 
 
 /**
- * View helper class for retrieving data from Symfony2 responses.
+ * View helper class for retrieving data from Symfony responses.
  *
  * @package MW
  * @subpackage View
  */
-class Symfony2
+class Symfony
 	extends \Aimeos\Base\View\Helper\Response\Standard
 	implements \Aimeos\Base\View\Helper\Response\Iface
 {

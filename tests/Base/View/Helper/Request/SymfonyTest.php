@@ -9,7 +9,7 @@
 namespace Aimeos\Base\View\Helper\Request;
 
 
-class Symfony2Test extends \PHPUnit\Framework\TestCase
+class SymfonyTest extends \PHPUnit\Framework\TestCase
 {
 	private $object;
 	private $mock;
@@ -27,13 +27,13 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 		) ) );
 		$param = array( 'HTTP_HOST' => 'localhost', 'REMOTE_ADDR' => '127.0.0.1' );
 		$request = new \Symfony\Component\HttpFoundation\Request( [], [], [], [], $files, $param, 'Content' );
-		$this->object = new \Aimeos\Base\View\Helper\Request\Symfony2( $view, $request );
+		$this->object = new \Aimeos\Base\View\Helper\Request\Symfony( $view, $request );
 	}
 
 
 	public function testTransform()
 	{
-		$this->assertInstanceOf( '\Aimeos\Base\View\Helper\Request\Symfony2', $this->object->transform() );
+		$this->assertInstanceOf( '\Aimeos\Base\View\Helper\Request\Symfony', $this->object->transform() );
 	}
 
 

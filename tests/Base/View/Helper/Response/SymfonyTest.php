@@ -9,7 +9,7 @@
 namespace Aimeos\Base\View\Helper\Response;
 
 
-class Symfony2Test extends \PHPUnit\Framework\TestCase
+class SymfonyTest extends \PHPUnit\Framework\TestCase
 {
 	private $object;
 	private $mock;
@@ -18,13 +18,13 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 	protected function setUp() : void
 	{
 		$view = new \Aimeos\Base\View\Standard();
-		$this->object = new \Aimeos\Base\View\Helper\Response\Symfony2( $view );
+		$this->object = new \Aimeos\Base\View\Helper\Response\Symfony( $view );
 	}
 
 
 	public function testTransform()
 	{
-		$this->assertInstanceOf( '\Aimeos\Base\View\Helper\Response\Symfony2', $this->object->transform() );
+		$this->assertInstanceOf( '\Aimeos\Base\View\Helper\Response\Symfony', $this->object->transform() );
 	}
 
 

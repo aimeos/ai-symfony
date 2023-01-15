@@ -10,9 +10,9 @@ namespace Aimeos\Base\View\Helper\Url;
 
 
 /**
- * Test class for \Aimeos\Base\View\Helper\Url\Symfony2.
+ * Test class for \Aimeos\Base\View\Helper\Url\Symfony.
  */
-class Symfony2Test extends \PHPUnit\Framework\TestCase
+class SymfonyTest extends \PHPUnit\Framework\TestCase
 {
 	private $object;
 
@@ -35,7 +35,7 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 		$loader = new \Symfony\Component\Routing\Loader\PhpFileLoader( $loc );
 		$router = new \Symfony\Component\Routing\Router( $loader, 'routing.php' );
 
-		$this->object = new \Aimeos\Base\View\Helper\Url\Symfony2( $view, $router, array( 'site' => 'unittest' ) );
+		$this->object = new \Aimeos\Base\View\Helper\Url\Symfony( $view, $router, array( 'site' => 'unittest' ) );
 	}
 
 

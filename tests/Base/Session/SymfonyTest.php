@@ -9,7 +9,7 @@
 namespace Aimeos\Base\Session;
 
 
-class Symfony2Test extends \PHPUnit\Framework\TestCase
+class SymfonyTest extends \PHPUnit\Framework\TestCase
 {
 	private $object;
 
@@ -22,7 +22,7 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 
 		$storage = new \Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage();
 		$session = new \Symfony\Component\HttpFoundation\Session\Session( $storage );
-		$this->object = new \Aimeos\Base\Session\Symfony2( $session );
+		$this->object = new \Aimeos\Base\Session\Symfony( $session );
 	}
 
 
