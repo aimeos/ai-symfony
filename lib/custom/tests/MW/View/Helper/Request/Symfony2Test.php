@@ -6,7 +6,7 @@
  */
 
 
-namespace Aimeos\MW\View\Helper\Request;
+namespace Aimeos\Base\View\Helper\Request;
 
 
 class Symfony2Test extends \PHPUnit\Framework\TestCase
@@ -17,7 +17,7 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 
 	protected function setUp() : void
 	{
-		$view = new \Aimeos\MW\View\Standard();
+		$view = new \Aimeos\Base\View\Standard();
 		$files = array( 'test' => array( 'file' => array(
 			'name' => 'test.txt',
 			'type' => 'text/plain',
@@ -27,13 +27,13 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 		) ) );
 		$param = array( 'HTTP_HOST' => 'localhost', 'REMOTE_ADDR' => '127.0.0.1' );
 		$request = new \Symfony\Component\HttpFoundation\Request( [], [], [], [], $files, $param, 'Content' );
-		$this->object = new \Aimeos\MW\View\Helper\Request\Symfony2( $view, $request );
+		$this->object = new \Aimeos\Base\View\Helper\Request\Symfony2( $view, $request );
 	}
 
 
 	public function testTransform()
 	{
-		$this->assertInstanceOf( '\Aimeos\MW\View\Helper\Request\Symfony2', $this->object->transform() );
+		$this->assertInstanceOf( '\Aimeos\Base\View\Helper\Request\Symfony2', $this->object->transform() );
 	}
 
 

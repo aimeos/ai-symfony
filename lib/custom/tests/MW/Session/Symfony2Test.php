@@ -6,7 +6,7 @@
  */
 
 
-namespace Aimeos\MW\Session;
+namespace Aimeos\Base\Session;
 
 
 class Symfony2Test extends \PHPUnit\Framework\TestCase
@@ -22,7 +22,7 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 
 		$storage = new \Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage();
 		$session = new \Symfony\Component\HttpFoundation\Session\Session( $storage );
-		$this->object = new \Aimeos\MW\Session\Symfony2( $session );
+		$this->object = new \Aimeos\Base\Session\Symfony2( $session );
 	}
 
 
@@ -39,7 +39,7 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->del( 'test' );
 
-		$this->assertInstanceOf( \Aimeos\MW\Session\Iface::class, $result );
+		$this->assertInstanceOf( \Aimeos\Base\Session\Iface::class, $result );
 		$this->assertEquals( null, $this->object->get( 'test' ) );
 	}
 
@@ -73,7 +73,7 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->remove( ['test'] );
 
-		$this->assertInstanceOf( \Aimeos\MW\Session\Iface::class, $result );
+		$this->assertInstanceOf( \Aimeos\Base\Session\Iface::class, $result );
 		$this->assertEquals( null, $this->object->get( 'test' ) );
 	}
 
@@ -85,7 +85,7 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->set( 'test', '234' );
 
-		$this->assertInstanceOf( \Aimeos\MW\Session\Iface::class, $result );
+		$this->assertInstanceOf( \Aimeos\Base\Session\Iface::class, $result );
 		$this->assertEquals( '234', $this->object->get( 'test' ) );
 	}
 }

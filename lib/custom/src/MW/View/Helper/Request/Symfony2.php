@@ -8,7 +8,7 @@
  */
 
 
-namespace Aimeos\MW\View\Helper\Request;
+namespace Aimeos\Base\View\Helper\Request;
 
 
 /**
@@ -18,8 +18,8 @@ namespace Aimeos\MW\View\Helper\Request;
  * @subpackage View
  */
 class Symfony2
-	extends \Aimeos\MW\View\Helper\Request\Standard
-	implements \Aimeos\MW\View\Helper\Request\Iface
+	extends \Aimeos\Base\View\Helper\Request\Standard
+	implements \Aimeos\Base\View\Helper\Request\Iface
 {
 	private $request;
 
@@ -27,7 +27,7 @@ class Symfony2
 	/**
 	 * Initializes the URL view helper.
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View instance with registered view helpers
+	 * @param \Aimeos\Base\View\Iface $view View instance with registered view helpers
 	 * @param \Symfony\Component\HttpFoundation\Request $request Symfony2 request object
 	 */
 	public function __construct( $view, \Symfony\Component\HttpFoundation\Request $request )

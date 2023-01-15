@@ -6,11 +6,11 @@
  */
 
 
-namespace Aimeos\MW\View\Helper\Url;
+namespace Aimeos\Base\View\Helper\Url;
 
 
 /**
- * Test class for \Aimeos\MW\View\Helper\Url\Symfony2.
+ * Test class for \Aimeos\Base\View\Helper\Url\Symfony2.
  */
 class Symfony2Test extends \PHPUnit\Framework\TestCase
 {
@@ -29,13 +29,13 @@ class Symfony2Test extends \PHPUnit\Framework\TestCase
 			$this->markTestSkipped( 'Symfony\Component\Routing\Router is not available' );
 		}
 
-		$view = new \Aimeos\MW\View\Standard();
+		$view = new \Aimeos\Base\View\Standard();
 
 		$loc = new \Symfony\Component\Config\FileLocator( array( __DIR__ . DIRECTORY_SEPARATOR . '_testfiles' ) );
 		$loader = new \Symfony\Component\Routing\Loader\PhpFileLoader( $loc );
 		$router = new \Symfony\Component\Routing\Router( $loader, 'routing.php' );
 
-		$this->object = new \Aimeos\MW\View\Helper\Url\Symfony2( $view, $router, array( 'site' => 'unittest' ) );
+		$this->object = new \Aimeos\Base\View\Helper\Url\Symfony2( $view, $router, array( 'site' => 'unittest' ) );
 	}
 
 

@@ -50,30 +50,30 @@ class TestHelper
 	 * Creates a new context item.
 	 *
 	 * @param string $site Unique site code
-	 * @return \\Aimeos\MShop\Context\Item\Iface Context object
+	 * @return \\Aimeos\MShop\ContextIface Context object
 	 */
 		private static function createContext( $site )
 	{
-		$ctx = new \Aimeos\MShop\Context\Item\Standard();
+		$ctx = new \Aimeos\MShop\Context();
 		$mshop = self::getAimeos();
 
 
 		$paths = $mshop->getConfigPaths( 'mysql' );
 		$paths[] = __DIR__ . DIRECTORY_SEPARATOR . 'config';
 
-		$conf = new \Aimeos\MW\Config\PHPArray( [], $paths );
+		$conf = new \Aimeos\Base\Config\PHPArray( [], $paths );
 		$ctx->setConfig( $conf );
 
 
-		$dbm = new \Aimeos\MW\DB\Manager\PDO( $conf );
+		$dbm = new \Aimeos\Base\DB\Manager\PDO( $conf );
 		$ctx->setDatabaseManager( $dbm );
 
 
-		$logger = new \Aimeos\MW\Logger\File( $site . '.log', \Aimeos\MW\Logger\Base::DEBUG );
+		$logger = new \Aimeos\Base\Logger\File( $site . '.log', \Aimeos\Base\Logger\Iface::DEBUG );
 		$ctx->setLogger( $logger );
 
 
-		$session = new \Aimeos\MW\Session\None();
+		$session = new \Aimeos\Base\Session\None();
 		$ctx->setSession( $session );
 
 

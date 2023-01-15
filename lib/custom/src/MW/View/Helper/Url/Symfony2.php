@@ -8,7 +8,7 @@
  */
 
 
-namespace Aimeos\MW\View\Helper\Url;
+namespace Aimeos\Base\View\Helper\Url;
 
 
 /**
@@ -18,8 +18,8 @@ namespace Aimeos\MW\View\Helper\Url;
  * @subpackage View
  */
 class Symfony2
-	extends \Aimeos\MW\View\Helper\Url\Base
-	implements \Aimeos\MW\View\Helper\Url\Iface
+	extends \Aimeos\Base\View\Helper\Url\Base
+	implements \Aimeos\Base\View\Helper\Url\Iface
 {
 	private $router;
 	private $fixed;
@@ -28,11 +28,11 @@ class Symfony2
 	/**
 	 * Initializes the URL view helper.
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View instance with registered view helpers
+	 * @param \Aimeos\Base\View\Iface $view View instance with registered view helpers
 	 * @param Symfony\Component\Routing\RouterInterface $router Symfony2 Router implementation
 	 * @param array $fixed Fixed parameters that should be added to each URL
 	 */
-	public function __construct( \Aimeos\MW\View\Iface $view, \Symfony\Component\Routing\RouterInterface $router, array $fixed )
+	public function __construct( \Aimeos\Base\View\Iface $view, \Symfony\Component\Routing\RouterInterface $router, array $fixed )
 	{
 		parent::__construct( $view );
 
