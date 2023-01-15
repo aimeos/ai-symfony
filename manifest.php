@@ -11,6 +11,6 @@ return [
 		'aimeos-core',
 	],
 	'include' => [
-		'lib/custom/src',
+		'src',
 	],
 ];
