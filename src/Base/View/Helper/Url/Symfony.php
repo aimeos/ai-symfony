@@ -21,15 +21,15 @@ class Symfony
 	extends \Aimeos\Base\View\Helper\Url\Base
 	implements \Aimeos\Base\View\Helper\Url\Iface
 {
-	private $router;
-	private $fixed;
+	private \Symfony\Component\Routing\RouterInterface $router;
+	private array $fixed;
 
 
 	/**
 	 * Initializes the URL view helper.
 	 *
 	 * @param \Aimeos\Base\View\Iface $view View instance with registered view helpers
-	 * @param Symfony\Component\Routing\RouterInterface $router Symfony Router implementation
+	 * @param \Symfony\Component\Routing\RouterInterface $router Symfony Router implementation
 	 * @param array $fixed Fixed parameters that should be added to each URL
 	 */
 	public function __construct( \Aimeos\Base\View\Iface $view, \Symfony\Component\Routing\RouterInterface $router, array $fixed )

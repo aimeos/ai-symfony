@@ -19,13 +19,13 @@ namespace Aimeos\Base\Session;
  */
 class Symfony extends Base implements \Aimeos\Base\Session\Iface
 {
-	private $object;
+	private \Symfony\Component\HttpFoundation\Session\SessionInterface $object;
 
 
 	/**
 	 * Initializes the object.
 	 *
-	 * @param Symfony\Component\HttpFoundation\Session\SessionInterface $object Symfony session object
+	 * @param \Symfony\Component\HttpFoundation\Session\SessionInterface $object Symfony session object
 	 */
 	public function __construct( \Symfony\Component\HttpFoundation\Session\SessionInterface $object )
 	{

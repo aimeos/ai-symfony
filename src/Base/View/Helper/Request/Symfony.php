@@ -21,7 +21,7 @@ class Symfony
 	extends \Aimeos\Base\View\Helper\Request\Standard
 	implements \Aimeos\Base\View\Helper\Request\Iface
 {
-	private $request;
+	private \Symfony\Component\HttpFoundation\Request $request;
 
 
 	/**
