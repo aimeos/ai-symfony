@@ -17,7 +17,7 @@ class SymfonyTest extends \PHPUnit\Framework\TestCase
 
 	protected function setUp() : void
 	{
-		if( !class_exists( 'Symfony\Component\Mailer\MailerInterface' ) ) {
+		if( !interface_exists( 'Symfony\Component\Mailer\MailerInterface' ) ) {
 			$this->markTestSkipped( 'Class Symfony\Component\Mailer\MailerInterface not found' );
 		}
 

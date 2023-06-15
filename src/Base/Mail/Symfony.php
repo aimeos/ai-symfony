@@ -3,7 +3,7 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Aimeos (aimeos.org), 2023
- * @package MW
+ * @package Base
  * @subpackage Session
  */
 
@@ -14,10 +14,10 @@ namespace Aimeos\Base\Mail;
 /**
  * Implementation using Symfony sessions.
  *
- * @package MW
+ * @package Base
  * @subpackage Session
  */
-class Symfony extends Base implements \Aimeos\Base\Mail\Iface
+class Symfony implements \Aimeos\Base\Mail\Iface
 {
 	private \Closure $closure;
 
