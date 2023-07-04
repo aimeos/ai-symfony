@@ -20,7 +20,7 @@
 		"symfony/mailer": "~6.2",
 		"symfony/framework-bundle": "~6.2",
 		"egulias/email-validator": "^3.0||^4.0",
-		"aimeos/aimeos-core": "dev-master"
+		"aimeos/aimeos-core": "2023.07.*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~9.0||~10.0"
