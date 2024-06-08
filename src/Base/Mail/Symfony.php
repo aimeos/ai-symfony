@@ -4,7 +4,7 @@
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Aimeos (aimeos.org), 2023-2024
  * @package Base
- * @subpackage Session
+ * @subpackage Mail
  */
 
 
@@ -12,19 +12,20 @@ namespace Aimeos\Base\Mail;
 
 
 /**
- * Implementation using Symfony sessions.
+ * Implementation using Symfony mailer.
  *
  * @package Base
- * @subpackage Session
+ * @subpackage Mail
  */
 class Symfony implements \Aimeos\Base\Mail\Iface
 {
 	private \Closure $closure;
 
+
 	/**
 	 * Initializes the instance of the class.
 	 *
-	 * @param \Closure $closure Closure generating TYPO3 mail message objects
+	 * @param \Closure $closure Closure generating mail message objects
 	 */
 	public function __construct( \Closure $closure )
 	{
