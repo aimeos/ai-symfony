@@ -42,6 +42,6 @@ class Symfony implements Iface
 	 */
 	public function get( string $name ) : \Aimeos\Base\Mail\Iface
 	{
-        return new \Aimeos\Base\Mail\Symfony( $this->closure );
+		return new \Aimeos\Base\Mail\Symfony( $this->closure );
 	}
 }
