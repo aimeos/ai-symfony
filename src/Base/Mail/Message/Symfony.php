@@ -45,7 +45,7 @@ class Symfony implements \Aimeos\Base\Mail\Message\Iface
 	 * @param string|null $name Name of the user sending the e-mail or null for no name
 	 * @return \Aimeos\Base\Mail\Message\Iface Message object
 	 */
-	public function from( string $email, string $name = null ) : Iface
+	public function from( string $email, ?string $name = null ) : Iface
 	{
 		if( $email ) {
 			$this->object->from( new \Symfony\Component\Mime\Address( $email, (string) $name ) );
@@ -62,7 +62,7 @@ class Symfony implements \Aimeos\Base\Mail\Message\Iface
 	 * @param string|null $name Name of the user owning the target mailbox or null for no name
 	 * @return \Aimeos\Base\Mail\Message\Iface Message object
 	 */
-	public function to( string $email, string $name = null ) : Iface
+	public function to( string $email, ?string $name = null ) : Iface
 	{
 		if( $email ) {
 			$this->object->to( new \Symfony\Component\Mime\Address( $email, (string) $name ) );
@@ -79,7 +79,7 @@ class Symfony implements \Aimeos\Base\Mail\Message\Iface
 	 * @param string|null $name Name of the user owning the target mailbox or null for no name
 	 * @return \Aimeos\Base\Mail\Message\Iface Message object
 	 */
-	public function cc( string $email, string $name = null ) : Iface
+	public function cc( string $email, ?string $name = null ) : Iface
 	{
 		if( $email ) {
 			$this->object->cc( new \Symfony\Component\Mime\Address( $email, (string) $name ) );
@@ -115,7 +115,7 @@ class Symfony implements \Aimeos\Base\Mail\Message\Iface
 	 * @param string|null $name Name of the user which should receive all replies or null for no name
 	 * @return \Aimeos\Base\Mail\Message\Iface Message object
 	 */
-	public function replyTo( string $email, string $name = null ) : Iface
+	public function replyTo( string $email, ?string $name = null ) : Iface
 	{
 		if( $email ) {
 			$this->object->replyTo( new \Symfony\Component\Mime\Address( $email, (string) $name ) );
@@ -161,7 +161,7 @@ class Symfony implements \Aimeos\Base\Mail\Message\Iface
 	 * @param string|null $name Name of the user who sent the message or null for no name
 	 * @return \Aimeos\Base\Mail\Message\Iface Message object
 	 */
-	public function sender( string $email, string $name = null ) : Iface
+	public function sender( string $email, ?string $name = null ) : Iface
 	{
 		if( $email ) {
 			$this->object->sender( new \Symfony\Component\Mime\Address( $email, (string) $name ) );
@@ -228,7 +228,7 @@ class Symfony implements \Aimeos\Base\Mail\Message\Iface
 	 * @param string $disposition Type of the disposition ("attachment" or "inline")
 	 * @return \Aimeos\Base\Mail\Message\Iface Message object
 	 */
-	public function attach( ?string $data, string $filename = null, string $mimetype = null, string $disposition = 'attachment' ) : Iface
+	public function attach( ?string $data, ?string $filename = null, ?string $mimetype = null, string $disposition = 'attachment' ) : Iface
 	{
 		if( $data )
 		{
@@ -250,7 +250,7 @@ class Symfony implements \Aimeos\Base\Mail\Message\Iface
 	 * @param string|null $mimetype Mime type of the attachment (e.g. "text/plain", "application/octet-stream", etc.)
 	 * @return string Content ID for referencing the attachment in the HTML body
 	 */
-	public function embed( ?string $data, string $filename = null, string $mimetype = null ) : string
+	public function embed( ?string $data, ?string $filename = null, ?string $mimetype = null ) : string
 	{
 		if( $data )
 		{
