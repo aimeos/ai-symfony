@@ -56,7 +56,7 @@ class Symfony
 	 */
 	public function getTarget() : ?string
 	{
-		return $this->request->get( '_route' );
+		return $this->request->attributes->get( '_route' );
 	}
 
 

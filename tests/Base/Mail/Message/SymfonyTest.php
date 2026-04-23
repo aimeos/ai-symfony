@@ -9,6 +9,7 @@
 namespace Aimeos\Base\Mail\Message;
 
 
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class SymfonyTest extends \PHPUnit\Framework\TestCase
 {
 	private $object;
