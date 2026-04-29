@@ -16,9 +16,9 @@
 	"require": {
 		"php": "~8.2",
 		"nyholm/psr7": "~1.2",
-		"symfony/mime": "~7.0",
-		"symfony/mailer": "~7.0",
-		"symfony/framework-bundle": "~7.0",
+		"symfony/mime": "~7.0|~8.0",
+		"symfony/mailer": "~7.0|~8.0",
+		"symfony/framework-bundle": "~7.0|~8.0",
 		"egulias/email-validator": "^4.0",
 		"aimeos/aimeos-core": "2026.04.*"
 	},
