@@ -45,7 +45,7 @@ class Symfony
 	 */
 	public function getClientAddress() : string
 	{
-		return $this->request->getClientIp();
+		return $this->request->getClientIp() ?? '';
 	}
 
 
@@ -56,6 +56,7 @@ class Symfony
 	 */
 	public function getTarget() : ?string
 	{
+		// @phpstan-ignore return.type
 		return $this->request->attributes->get( '_route' );
 	}
 

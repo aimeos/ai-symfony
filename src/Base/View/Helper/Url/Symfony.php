@@ -56,6 +56,7 @@ class Symfony
 		array $params = [], array $trailing = [], array $config = [] ) : string
 	{
 		if( !empty( $trailing ) ) {
+			// @phpstan-ignore argument.type
 			$params['trailing'] = join( '_', $trailing );
 		}
 
@@ -66,6 +67,7 @@ class Symfony
 			$refType = \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL;
 		}
 
+		// @phpstan-ignore argument.type
 		return $this->router->generate( $target, $params + $this->fixed, $refType );
 	}
 }

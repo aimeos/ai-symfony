@@ -42,6 +42,7 @@ class Symfony implements \Aimeos\Base\Mail\Iface
 	public function create( string $charset = 'UTF-8' ) : \Aimeos\Base\Mail\Message\Iface
 	{
 		$closure = $this->closure;
+		// @phpstan-ignore argument.type
 		return new \Aimeos\Base\Mail\Message\Symfony( $closure(), new \Symfony\Component\Mime\Email(), $charset );
 	}
 
@@ -54,7 +55,7 @@ class Symfony implements \Aimeos\Base\Mail\Iface
 	public function send( \Aimeos\Base\Mail\Message\Iface $message ) : Iface
 	{
 		$closure = $this->closure;
-		$closure()->send( $message->object() );
+		$closure()->send( $message->object() ); // @phpstan-ignore method.notFound
 
 		return $this;
 	}

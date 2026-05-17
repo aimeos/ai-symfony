@@ -100,6 +100,7 @@ class Symfony implements \Aimeos\Base\Mail\Message\Iface
 		if( !empty( $email ) )
 		{
 			foreach( (array) $email as $addr ) {
+				// @phpstan-ignore argument.type
 				$this->object->bcc( new \Symfony\Component\Mime\Address( $addr ) );
 			}
 		}
@@ -235,6 +236,7 @@ class Symfony implements \Aimeos\Base\Mail\Message\Iface
 			$mimetype = $mimetype ?: (new \finfo( FILEINFO_MIME_TYPE ))->buffer( $data );
 			$filename = $filename ?: md5( $data );
 
+			// @phpstan-ignore argument.type
 			$this->object->attach( $data, $filename, $mimetype );
 		}
 
@@ -257,6 +259,7 @@ class Symfony implements \Aimeos\Base\Mail\Message\Iface
 			$mimetype = $mimetype ?: (new \finfo( FILEINFO_MIME_TYPE ))->buffer( $data );
 			$filename = $filename ?: md5( $data );
 
+			// @phpstan-ignore argument.type
 			$this->object->embed( $data, $filename, $mimetype );
 			return 'cid:' . $filename;
 		}
